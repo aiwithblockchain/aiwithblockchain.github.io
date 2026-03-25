@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TweetClaw</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .contact {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #1d9bf0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: March 25, 2026</p>
+
+        <div class="highlight">
+            <strong>TL;DR:</strong> TweetClaw does not collect, store, or transmit any user data. All data processing happens locally on your machine. We do not use analytics, tracking, or third-party services.
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>
+            TweetClaw ("we", "our", or "the extension") is a browser extension that bridges your X (Twitter) browser session to local AI agents. This Privacy Policy explains how we handle data when you use our extension.
+        </p>
+
+        <h2>2. Data Collection</h2>
+        <h3>2.1 What We DO NOT Collect</h3>
+        <p>TweetClaw does not collect, store, or transmit any of the following:</p>
+        <ul>
+            <li>Personal information (name, email, phone number, etc.)</li>
+            <li>Twitter/X account credentials or passwords</li>
+            <li>Twitter/X content (tweets, messages, profiles, etc.)</li>
+            <li>Browsing history or behavior</li>
+            <li>Usage analytics or statistics</li>
+            <li>Device information or identifiers</li>
+            <li>IP addresses or location data</li>
+        </ul>
+
+        <h3>2.2 What We Store Locally</h3>
+        <p>The following data is stored only in your browser's local storage and never leaves your device:</p>
+        <ul>
+            <li><strong>Connection Settings:</strong> LocalBridge IP address and port number</li>
+            <li><strong>Instance Name:</strong> Optional display name for multi-account scenarios</li>
+            <li><strong>Twitter API Metadata:</strong> QueryID mappings and Bearer tokens (required for API functionality)</li>
+        </ul>
+        <p>This data is stored using Chrome's <code>chrome.storage.local</code> API and remains on your device. You can clear it at any time by removing the extension.</p>
+
+        <h2>3. Data Processing</h2>
+        <h3>3.1 Local Processing Only</h3>
+        <p>
+            All data processing occurs entirely on your local machine. TweetClaw intercepts Twitter's GraphQL API responses in your browser and forwards them to LocalBridge running on your computer (localhost). No data is sent to external servers or cloud services.
+        </p>
+
+        <h3>3.2 How Data Flows</h3>
+        <ol>
+            <li>You visit Twitter/X in your browser</li>
+            <li>TweetClaw intercepts Twitter's API responses</li>
+            <li>Data is sent to LocalBridge via WebSocket (localhost only)</li>
+            <li>LocalBridge processes the data locally</li>
+            <li>No data leaves your computer</li>
+        </ol>
+
+        <h2>4. Permissions Explanation</h2>
+        <p>TweetClaw requests the following permissions. Here's why we need each one:</p>
+
+        <h3>4.1 storage</h3>
+        <p>To save your LocalBridge connection settings (IP, port, instance name) locally in your browser.</p>
+
+        <h3>4.2 tabs</h3>
+        <p>To manage Twitter/X tabs (open, close, navigate) as requested by AI agents through LocalBridge.</p>
+
+        <h3>4.3 activeTab</h3>
+        <p>To access the currently active Twitter/X tab to intercept GraphQL API requests and responses.</p>
+
+        <h3>4.4 alarms</h3>
+        <p>To schedule periodic WebSocket connection health checks and automatic reconnection attempts.</p>
+
+        <h3>4.5 cookies</h3>
+        <p>To read Twitter's session cookies (specifically the <code>twid</code> cookie) to verify login status and extract user ID. We do not modify, delete, or create any cookies.</p>
+
+        <h3>4.6 webRequest</h3>
+        <p>To monitor Twitter GraphQL API requests to capture QueryIDs and Bearer tokens required for API operations. We do not modify, block, or redirect any requests.</p>
+
+        <h3>4.7 Host Permissions</h3>
+        <ul>
+            <li><strong>twitter.com, x.com:</strong> To inject content scripts and intercept API calls on Twitter/X</li>
+            <li><strong>*.twitter.com, *.x.com:</strong> To access Twitter subdomains (API, media CDN, etc.)</li>
+            <li><strong>127.0.0.1:8765:</strong> To connect to LocalBridge running on your computer</li>
+        </ul>
+
+        <h2>5. Third-Party Services</h2>
+        <p>
+            TweetClaw does not use any third-party services, analytics tools, or external APIs. The only connection made is to LocalBridge running on your local machine (127.0.0.1).
+        </p>
+
+        <h2>6. Data Sharing</h2>
+        <p>
+            We do not sell, trade, or transfer your data to third parties. Since we don't collect any data, there is nothing to share.
+        </p>
+
+        <h2>7. Data Security</h2>
+        <p>
+            All data processing happens locally on your machine. The WebSocket connection to LocalBridge uses localhost (127.0.0.1), which means data never leaves your computer. Your Twitter session remains secure within your browser.
+        </p>
+
+        <h2>8. User Rights</h2>
+        <p>You have complete control over TweetClaw:</p>
+        <ul>
+            <li><strong>Access:</strong> All stored data is in your browser's local storage</li>
+            <li><strong>Deletion:</strong> Remove the extension to delete all stored data</li>
+            <li><strong>Control:</strong> You can disconnect from LocalBridge at any time</li>
+            <li><strong>Transparency:</strong> Our code is open source and can be reviewed</li>
+        </ul>
+
+        <h2>9. Children's Privacy</h2>
+        <p>
+            TweetClaw is not intended for use by children under 13. We do not knowingly collect data from children. If you believe a child has used our extension, please contact us.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>
+            We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of TweetClaw after changes constitutes acceptance of the updated policy.
+        </p>
+
+        <h2>11. Compliance</h2>
+        <p>TweetClaw complies with:</p>
+        <ul>
+            <li>Chrome Web Store Developer Program Policies</li>
+            <li>General Data Protection Regulation (GDPR)</li>
+            <li>California Consumer Privacy Act (CCPA)</li>
+        </ul>
+
+        <h2>12. Open Source</h2>
+        <p>
+            TweetClaw is designed with transparency in mind. Our code can be reviewed to verify these privacy claims. We believe in building trust through openness.
+        </p>
+
+        <div class="contact">
+            <h2>13. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or TweetClaw's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Website:</strong> <a href="https://aiwithblockchain.github.io/">https://aiwithblockchain.github.io/</a></li>
+                <li><strong>GitHub:</strong> (Repository link available in extension details)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 TweetClaw. All rights reserved.</p>
+            <p>This privacy policy applies to TweetClaw browser extension version 0.4.52 and later.</p>
+        </div>
+    </div>
+</body>
+</html>
