@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - OpenHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #eef7ff;
+            padding: 20px;
+            border-left: 4px solid #2563eb;
+            margin: 20px 0;
+        }
+
+        .contact {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: March 25, 2026</p>
+
+        <div class="highlight">
+            <strong>Summary:</strong> OpenHub is designed to operate primarily on your device. It manages local communication between companion browser extensions and local services, and it does not use advertising SDKs or third-party analytics.
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>
+            OpenHub is a macOS application that acts as a local bridge between companion browser extensions and local services. This Privacy Policy explains what information OpenHub handles, how that information is used, and how data is stored when you use the app.
+        </p>
+
+        <h2>2. What OpenHub Does</h2>
+        <p>
+            OpenHub manages local WebSocket and REST API communication for supported companion browser extensions and local workflows. Depending on how you configure and use the app, OpenHub may receive status information, task requests, logs, and response data from companion extensions and locally running components.
+        </p>
+
+        <h2>3. Data Collection</h2>
+        <h3>3.1 Data We Do Not Collect for Our Own Use</h3>
+        <p>OpenHub does not collect or transmit the following to our servers for analytics, advertising, or profiling:</p>
+        <ul>
+            <li>Advertising identifiers</li>
+            <li>Usage analytics for marketing purposes</li>
+            <li>Tracking data across apps or websites</li>
+            <li>Personal profiles for sale or data brokerage</li>
+        </ul>
+
+        <h3>3.2 Data Handled by the App</h3>
+        <p>OpenHub may handle the following categories of data locally on your device as part of its core functionality:</p>
+        <ul>
+            <li><strong>Configuration Data:</strong> Local service settings such as ports, local connection options, theme, and language preferences</li>
+            <li><strong>Connection Metadata:</strong> Connected companion extension instances, instance names, client names, version data, and connection timestamps</li>
+            <li><strong>Operational Logs:</strong> Local runtime logs, connection status messages, and debugging information</li>
+            <li><strong>Task and Response Data:</strong> Structured requests and responses exchanged between OpenHub and companion extensions or local components</li>
+        </ul>
+
+        <h2>4. How Data Is Used</h2>
+        <p>The information handled by OpenHub is used only to provide the core functionality of the app, including:</p>
+        <ul>
+            <li>Establishing and maintaining local communication channels</li>
+            <li>Routing requests between companion extensions and local services</li>
+            <li>Displaying connection state, API documentation, and logs within the app</li>
+            <li>Allowing you to configure and manage local bridge behavior</li>
+        </ul>
+
+        <h2>5. Data Storage</h2>
+        <p>
+            OpenHub stores necessary configuration data and related local state on your device. Based on the current implementation, configuration may be written to local files under your user environment so the app can restore settings between launches. Operational data is intended to remain under your control on your own device.
+        </p>
+
+        <h2>6. Data Sharing</h2>
+        <p>
+            OpenHub does not sell your data or share it with data brokers. The app is intended to operate through local communication on your device and within environments you configure. If you configure OpenHub to communicate with other devices or services on your own network, the resulting data flow is determined by your own configuration.
+        </p>
+
+        <h2>7. Third-Party Content and Services</h2>
+        <p>
+            OpenHub can interoperate with third-party websites and services through companion browser extensions and local integrations. OpenHub itself does not control the privacy practices of those third-party services. Your use of any third-party website or service remains subject to that provider's own terms and privacy policy.
+        </p>
+
+        <h2>8. Tracking and Advertising</h2>
+        <p>
+            OpenHub does not include third-party advertising SDKs and is not designed to track you across apps or websites owned by other companies.
+        </p>
+
+        <h2>9. Security</h2>
+        <p>
+            OpenHub is designed around local communication and user-controlled configuration. However, the security of any data handled by the app also depends on your device security, local network environment, browser state, and the services you choose to connect.
+        </p>
+
+        <h2>10. Your Control</h2>
+        <p>You can control OpenHub data handling by:</p>
+        <ul>
+            <li>Changing or clearing local configuration</li>
+            <li>Disconnecting companion extensions</li>
+            <li>Removing the app and associated local data from your device</li>
+            <li>Choosing which local services or browser environments you connect</li>
+        </ul>
+
+        <h2>11. Children's Privacy</h2>
+        <p>
+            OpenHub is not directed to children under 13, and we do not knowingly collect personal information from children.
+        </p>
+
+        <h2>12. Changes to This Policy</h2>
+        <p>
+            We may update this Privacy Policy from time to time. If we do, we will update the date at the top of this page.
+        </p>
+
+        <h2>13. Contact</h2>
+        <div class="contact">
+            <p>For questions about this Privacy Policy or OpenHub, please visit:</p>
+            <ul>
+                <li><a href="https://aiwithblockchain.github.io/" target="_blank">aiwithblockchain.github.io</a></li>
+                <li><a href="https://github.com/aiwithblockchain" target="_blank">github.com/aiwithblockchain</a></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Copyright &copy; 2026 AIWithBlockchain Org. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
