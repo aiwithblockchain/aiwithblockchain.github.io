@@ -6,10 +6,12 @@
 <title>AIHub — Structured Intelligence Infrastructure</title>
 <meta name="description" content="AIHub is an open protocol that bridges AI agents with the real web — turning browser sessions and local apps into structured data APIs, slashing token costs and unlocking agentic automation at scale.">
 <script>
-// Suppress Tailwind CDN production warning
+// Suppress console warnings for production
 const originalWarn = console.warn;
 console.warn = function(...args) {
-  if (args[0]?.includes?.('cdn.tailwindcss.com should not be used in production')) return;
+  const msg = args[0]?.toString() || '';
+  if (msg.includes('cdn.tailwindcss.com') ||
+      msg.includes('should not be used in production')) return;
   originalWarn.apply(console, args);
 };
 </script>
