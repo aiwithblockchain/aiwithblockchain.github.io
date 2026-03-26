@@ -222,17 +222,17 @@
 <div class="max-w-screen-2xl mx-auto px-8 relative">
 <div class="text-center mb-20">
 <h2 class="text-4xl md:text-5xl font-black font-headline text-on-surface mb-4">Core Architecture</h2>
-<p class="text-on-surface-variant font-body">Real-time instruction routing via the LocalBridge mesh.</p>
-</div>
-<!-- Updated Legend Position -->
-<div class="absolute top-0 right-8 flex flex-col space-y-2 text-right">
-<div class="flex items-center justify-end space-x-2">
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">REST API (Instructions)</span>
+<p class="text-on-surface-variant font-body mb-6">Real-time instruction routing via the LocalBridge mesh.</p>
+<!-- Legend Position - Centered below title -->
+<div class="flex items-center justify-center space-x-8">
+<div class="flex items-center space-x-2">
 <span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">REST API (Instructions)</span>
 </div>
-<div class="flex items-center justify-end space-x-2">
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">WebSocket (Response)</span>
+<div class="flex items-center space-x-2">
 <span class="w-2.5 h-2.5 rounded-full bg-inverse-primary"></span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">WebSocket (Response)</span>
+</div>
 </div>
 </div>
 <div class="relative bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm border border-outline-variant/10">
@@ -299,7 +299,20 @@
 </div>
 </div>
 <!-- Bottom Nodes -->
-<div class="grid grid-cols-2 gap-12 max-w-3xl mx-auto relative z-10">
+<div class="grid grid-cols-4 gap-8 max-w-6xl mx-auto relative z-10">
+<!-- Other Extension (Left) -->
+<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="extension">extension</span>
+</div>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+</div>
+<h3 class="text-lg font-headline font-bold mb-1">Other Extension</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Third-party browser extensions can join the protocol.</p>
+</div>
+
+<!-- aiClaw -->
 <div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
 <div class="flex justify-between items-start mb-4">
 <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
@@ -310,6 +323,8 @@
 <h3 class="text-lg font-headline font-bold mb-1">aiClaw</h3>
 <p class="text-xs text-on-surface-variant leading-relaxed">Browser-native automation module for DOM manipulation.</p>
 </div>
+
+<!-- TweetClaw -->
 <div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
 <div class="flex justify-between items-start mb-4">
 <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
@@ -319,6 +334,18 @@
 </div>
 <h3 class="text-lg font-headline font-bold mb-1">TweetClaw</h3>
 <p class="text-xs text-on-surface-variant leading-relaxed">Social graph interaction node for headless thread monitoring.</p>
+</div>
+
+<!-- Other Software (Right) -->
+<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="apps">apps</span>
+</div>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+</div>
+<h3 class="text-lg font-headline font-bold mb-1">Other Software</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Any application can implement the AIHub protocol.</p>
 </div>
 </div>
 </div>
@@ -390,7 +417,7 @@
 </section>
 <!-- Code Section -->
 <section class="py-24 bg-surface-container-highest/30">
-<div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-5 gap-16 items-center">
+<div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-5 gap-20 items-center">
 <div class="lg:col-span-2 space-y-6">
 <span class="font-label text-xs font-bold uppercase tracking-widest text-primary">Developer SDK</span>
 <h2 class="text-5xl font-black font-headline text-on-surface">ClawBot Deep Integration</h2>
@@ -417,27 +444,56 @@
 <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
 </div>
 <div class="flex items-center space-x-4">
-<span class="text-slate-400 text-xs font-label">clawbot_init.py</span>
-<button class="flex items-center text-slate-300 hover:text-white transition-colors">
-<span class="material-symbols-outlined text-sm mr-1" data-icon="content_copy">content_copy</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">Copy</span>
-</button>
+<span class="text-slate-400 text-xs font-label">openclaw.py</span>
+<a href="https://github.com/aiwithblockchain/aihub/blob/main/localBridge/clawBotCli/openclaw.py" target="_blank" rel="noopener" class="flex items-center text-slate-300 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="code">code</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">GitHub</span>
+</a>
 </div>
 </div>
-<pre class="p-8 text-sm md:text-base font-mono leading-relaxed overflow-x-auto no-scrollbar"><span class="text-pink-400">from</span> aihub <span class="text-pink-400">import</span> LocalBridge, ClawBot
+<pre class="p-6 text-xs md:text-sm leading-relaxed overflow-x-auto no-scrollbar"><span class="text-slate-400"># Step 1: ClawBot commands TweetClaw to read tweet</span>
+<span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"read_tweet"</span>})
+<span class="text-slate-200">tweet_content</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"tweetclaw"</span>)
 
-<span class="text-slate-500"># Connect to local router node</span>
-bridge = LocalBridge(port=<span class="text-cyan-400">8080</span>)
-bot = ClawBot(id=<span class="text-emerald-400">"alpha-one"</span>)
+<span class="text-slate-400"># Step 2: Send AI prompt to AIClaw for analysis</span>
+<span class="text-slate-200">prompt</span> = <span class="text-emerald-400">"""
+</span><span class="text-cyan-200">请分析这篇推文要表达的内容，然后思考一下我们的 aihub
+作为一个降低 openclaw 消耗 token 的方案，能否得到他的
+帮助和推广。推文内容：【tweet_text】
 
-<span class="text-pink-400">@bot.on_instruction</span>
-<span class="text-pink-400">async def</span> <span class="text-blue-400">handle_flow</span>(data):
-    <span class="text-slate-500"># Redirect to Twitter extension</span>
-    <span class="text-pink-400">await</span> bridge.send_to(<span class="text-emerald-400">"tweetclaw"</span>, data)
-    <span class="text-amber-400">print</span>(<span class="text-emerald-400">"Instruction routed via Bridge..."</span>)
+要求：回复内容，表达精准简洁，附加我们的网站地址：
+https://aiwithblockchain.github.io/
+</span><span class="text-emerald-400">"""</span>
+<span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"aiclaw"</span>, <span class="text-slate-200">prompt</span>)
 
-bot.run()</pre>
+<span class="text-slate-400"># Step 3: Get AI response and command TweetClaw to post</span>
+<span class="text-slate-200">ai_response</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"aiclaw"</span>)
+<span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"post"</span>, <span class="text-emerald-400">"content"</span>: <span class="text-slate-200">ai_response</span>})</pre>
 </div>
+</div>
+</div>
+
+<!-- Video Demo Section -->
+<div class="max-w-screen-2xl mx-auto px-8 mt-20">
+<div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block">Live Demo</span>
+<h3 class="text-3xl font-black font-headline text-on-surface">Watch It In Action</h3>
+<p class="text-on-surface-variant mt-2">See how Python scripts connect ChatGPT and Twitter using AIClaw, TweetClaw, and LocalBridge.</p>
+</div>
+<a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="hidden md:flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
+<span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
+Watch on YouTube
+</a>
+</div>
+<div class="relative w-full" style="padding-bottom: 56.25%;">
+<iframe class="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg" src="https://www.youtube.com/embed/Z_7GYFY17hY" title="AIHub Integration Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="md:hidden flex items-center justify-center text-primary font-headline font-bold hover:text-primary-dim transition-colors mt-6">
+<span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
+Watch on YouTube
+</a>
 </div>
 </div>
 </section>
