@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i18n Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #006477;
+            color: white;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #005160;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AIHub i18n 功能测试</h1>
+
+    <div class="test-section">
+        <h2>语言切换控制</h2>
+        <button onclick="window.i18n.setLanguage('zh-CN')">切换到中文</button>
+        <button onclick="window.i18n.setLanguage('en')">Switch to English</button>
+        <button onclick="window.i18n.toggleLanguage()">Toggle Language</button>
+        <div class="status">
+            当前语言 / Current Language: <strong id="current-lang"></strong>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>导航栏测试 / Navigation Test</h2>
+        <nav>
+            <a href="#" data-i18n="nav.home">Home</a> |
+            <a href="#" data-i18n="nav.architecture">Architecture</a> |
+            <a href="#" data-i18n="nav.products">Products</a> |
+            <a href="#" data-i18n="nav.integration">Integration</a> |
+            <a href="#" data-i18n="nav.download">Download</a>
+        </nav>
+    </div>
+
+    <div class="test-section">
+        <h2>页脚测试 / Footer Test</h2>
+        <div>
+            <h3 data-i18n="footer.product.title">Product</h3>
+            <p data-i18n="footer.description">Open protocol infrastructure...</p>
+        </div>
+        <div>
+            <h3 data-i18n="footer.resources.title">Resources</h3>
+            <ul>
+                <li data-i18n="footer.resources.github">GitHub</li>
+                <li data-i18n="footer.resources.releases">Releases</li>
+            </ul>
+        </div>
+        <div>
+            <p data-i18n="footer.copyright">© 2025 AIHub. MIT License.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>本地存储测试 / LocalStorage Test</h2>
+        <button onclick="checkLocalStorage()">检查本地存储</button>
+        <button onclick="clearLocalStorage()">清除本地存储</button>
+        <div class="status" id="storage-status"></div>
+    </div>
+
+    <!-- i18n Scripts -->
+    <script src="assets/js/i18n-core.js"></script>
+    <script src="assets/js/i18n-data.js"></script>
+    <script>
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            window.i18n.updateDOM();
+            updateCurrentLang();
+
+            // 监听语言变化
+            window.i18n.addObserver(function(lang) {
+                updateCurrentLang();
+                console.log('Language changed to:', lang);
+            });
+        });
+
+        function updateCurrentLang() {
+            document.getElementById('current-lang').textContent = window.i18n.getCurrentLanguage();
+        }
+
+        function checkLocalStorage() {
+            const savedLang = localStorage.getItem('aihub-lang');
+            const status = document.getElementById('storage-status');
+            status.textContent = savedLang
+                ? `已保存的语言 / Saved language: ${savedLang}`
+                : '未找到保存的语言偏好 / No saved language preference';
+        }
+
+        function clearLocalStorage() {
+            localStorage.removeItem('aihub-lang');
+            document.getElementById('storage-status').textContent = '本地存储已清除 / LocalStorage cleared';
+        }
+    </script>
+</body>
+</html>

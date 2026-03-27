@@ -134,17 +134,22 @@ console.warn = function(...args) {
 <div class="flex justify-between items-center px-8 w-full max-w-screen-2xl mx-auto">
 <div class="text-2xl font-black tracking-tighter text-cyan-500">AIHub</div>
 <div class="hidden md:flex items-center space-x-8">
-<a class="text-cyan-600 font-bold border-b-2 border-cyan-500 font-label uppercase tracking-wider text-sm" href="#hero">Home</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#architecture">Architecture</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#products">Products</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#integration">Integration</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#downloads">Download</a>
+<a class="text-cyan-600 font-bold border-b-2 border-cyan-500 font-label uppercase tracking-wider text-sm" href="#hero" data-i18n="nav.home">Home</a>
+<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#architecture" data-i18n="nav.architecture">Architecture</a>
+<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#products" data-i18n="nav.products">Products</a>
+<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#integration" data-i18n="nav.integration">Integration</a>
+<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#downloads" data-i18n="nav.download">Download</a>
 </div>
+<div class="flex items-center space-x-4">
+<button id="lang-toggle" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center text-slate-600 transition-all duration-200 hover:scale-95" title="切换语言 / Switch Language">
+<span class="material-symbols-outlined text-xl">language</span>
+</button>
 <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
-<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label font-bold text-sm hover:scale-95 transition-transform duration-100">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label font-bold text-sm hover:scale-95 transition-transform duration-100" data-i18n="nav.github">
             GitHub
         </button>
 </a>
+</div>
 </div>
 </nav>
 <main class="pt-20">
@@ -155,21 +160,21 @@ console.warn = function(...args) {
 <div class="space-y-8">
 <div class="inline-flex items-center px-4 py-2 bg-secondary-container/30 text-on-secondary-container rounded-full border border-secondary-container/20">
 <span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="font-label text-xs font-bold uppercase tracking-widest">Open Protocol · v0.1 · Alpha</span>
+<span class="font-label text-xs font-bold uppercase tracking-widest" data-i18n="hero.badge">Open Protocol · v0.1 · Alpha</span>
 </div>
-<h1 class="text-6xl md:text-8xl font-black font-headline leading-[0.9] tracking-tighter text-on-surface">
+<h1 class="text-6xl md:text-8xl font-black font-headline leading-[0.9] tracking-tighter text-on-surface" data-i18n="hero.title">
                     90% Token <br/>
 <span class="text-primary">Reduction.</span>
 </h1>
-<p class="text-xl text-on-surface-variant max-w-lg font-body leading-relaxed">
+<p class="text-xl text-on-surface-variant max-w-lg font-body leading-relaxed" data-i18n="hero.description">
                     AIHub is an open infrastructure protocol that turns browser sessions and local apps into structured data APIs — dramatically cutting token costs and unlocking reliable agentic automation at scale.
                 </p>
 <div class="flex flex-wrap gap-4 pt-4">
 <a href="#downloads">
-<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all">Download Now</button>
+<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all" data-i18n="hero.downloadBtn">Download Now</button>
 </a>
 <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
-<button class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-xl font-headline font-bold text-lg hover:bg-surface-variant transition-all">View on GitHub</button>
+<button class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-xl font-headline font-bold text-lg hover:bg-surface-variant transition-all" data-i18n="hero.githubBtn">View on GitHub</button>
 </a>
 </div>
 </div>
@@ -211,7 +216,7 @@ console.warn = function(...args) {
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-2xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-2xl z-10 border-4 border-surface-container-lowest">
 <div class="absolute -top-3 -right-3 bg-primary-container text-on-primary-container px-2 py-1 rounded-md text-[8px] font-black font-headline">LOCALBRIDGE</div>
 <span class="material-symbols-outlined text-3xl" data-icon="hub">hub</span>
-<div class="mt-1.5 text-[10px] font-headline font-bold uppercase tracking-widest">Active Node</div>
+<div class="mt-1.5 text-[10px] font-headline font-bold uppercase tracking-widest" data-i18n="hero.activeNode">Active Node</div>
 </div>
 
 <!-- Bottom Left Node (Extension) -->
@@ -231,17 +236,17 @@ console.warn = function(...args) {
 <section class="py-24 bg-surface-container-low">
 <div class="max-w-screen-2xl mx-auto px-8 relative">
 <div class="text-center mb-20">
-<h2 class="text-4xl md:text-5xl font-black font-headline text-on-surface mb-4">Core Architecture</h2>
-<p class="text-on-surface-variant font-body mb-6">Real-time instruction routing via the LocalBridge mesh.</p>
+<h2 class="text-4xl md:text-5xl font-black font-headline text-on-surface mb-4" data-i18n="architecture.title">Core Architecture</h2>
+<p class="text-on-surface-variant font-body mb-6" data-i18n="architecture.subtitle">Real-time instruction routing via the LocalBridge mesh.</p>
 <!-- Legend Position - Centered below title -->
 <div class="flex items-center justify-center space-x-8">
 <div class="flex items-center space-x-2">
 <span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">REST API (Instructions)</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant" data-i18n="architecture.legend.instructions">REST API (Instructions)</span>
 </div>
 <div class="flex items-center space-x-2">
 <span class="w-2.5 h-2.5 rounded-full bg-inverse-primary"></span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">WebSocket (Response)</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant" data-i18n="architecture.legend.response">WebSocket (Response)</span>
 </div>
 </div>
 </div>
@@ -277,8 +282,8 @@ console.warn = function(...args) {
 <span class="material-symbols-outlined text-tertiary text-xl" data-icon="smart_toy">smart_toy</span>
 </div>
 <div>
-<h4 class="font-headline font-bold text-sm">AI Agent</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Autonomous Logic</p>
+<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.aiAgent.title">AI Agent</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.aiAgent.description">Autonomous Logic</p>
 </div>
 </div>
 <div class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
@@ -286,8 +291,8 @@ console.warn = function(...args) {
 <span class="material-symbols-outlined text-tertiary text-xl" data-icon="code">code</span>
 </div>
 <div>
-<h4 class="font-headline font-bold text-sm">IDE/SDK</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Manual Injection</p>
+<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.ideSdk.title">IDE/SDK</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.ideSdk.description">Manual Injection</p>
 </div>
 </div>
 <div class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
@@ -295,8 +300,8 @@ console.warn = function(...args) {
 <span class="material-symbols-outlined text-tertiary text-xl" data-icon="terminal">terminal</span>
 </div>
 <div>
-<h4 class="font-headline font-bold text-sm">Shell Scripts</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">CLI Orchestration</p>
+<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.shellScripts.title">Shell Scripts</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.shellScripts.description">CLI Orchestration</p>
 </div>
 </div>
 </div>
@@ -304,8 +309,8 @@ console.warn = function(...args) {
 <div class="flex justify-center mb-16 relative z-10">
 <div class="bg-primary px-8 py-5 rounded-2xl shadow-xl shadow-primary/30 flex flex-col items-center border-4 border-surface-container-lowest">
 <span class="material-symbols-outlined text-on-primary text-3xl mb-1" data-icon="lan">lan</span>
-<span class="font-headline font-black text-on-primary tracking-tighter text-lg leading-tight">LocalBridge</span>
-<span class="text-[9px] font-label text-on-primary/70 font-bold uppercase tracking-widest">Core Router</span>
+<span class="font-headline font-black text-on-primary tracking-tighter text-lg leading-tight" data-i18n="architecture.centralNode.title">LocalBridge</span>
+<span class="text-[9px] font-label text-on-primary/70 font-bold uppercase tracking-widest" data-i18n="architecture.centralNode.description">Core Router</span>
 </div>
 </div>
 <!-- Bottom Nodes -->
@@ -316,10 +321,10 @@ console.warn = function(...args) {
 <div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-primary text-xl" data-icon="extension">extension</span>
 </div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
 </div>
-<h3 class="text-lg font-headline font-bold mb-1">Other Extension</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Third-party browser extensions can join the protocol.</p>
+<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.otherExtension.title">Other Extension</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.otherExtension.description">Third-party browser extensions can join the protocol.</p>
 </div>
 
 <!-- aiClaw -->
@@ -328,10 +333,10 @@ console.warn = function(...args) {
 <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="ads_click">ads_click</span>
 </div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
 </div>
-<h3 class="text-lg font-headline font-bold mb-1">aiClaw</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Browser-native automation module for DOM manipulation.</p>
+<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.aiClaw.title">aiClaw</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.aiClaw.description">Browser-native automation module for DOM manipulation.</p>
 </div>
 
 <!-- TweetClaw -->
@@ -340,10 +345,10 @@ console.warn = function(...args) {
 <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="nest_audio">nest_audio</span>
 </div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
 </div>
-<h3 class="text-lg font-headline font-bold mb-1">TweetClaw</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Social graph interaction node for headless thread monitoring.</p>
+<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.tweetClaw.title">TweetClaw</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.tweetClaw.description">Social graph interaction node for headless thread monitoring.</p>
 </div>
 
 <!-- Other Software (Right) -->
@@ -352,10 +357,10 @@ console.warn = function(...args) {
 <div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
 <span class="material-symbols-outlined text-primary text-xl" data-icon="apps">apps</span>
 </div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full">WEBSOCKET</span>
+<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
 </div>
-<h3 class="text-lg font-headline font-bold mb-1">Other Software</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Any application can implement the AIHub protocol.</p>
+<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.otherSoftware.title">Other Software</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.otherSoftware.description">Any application can implement the AIHub protocol.</p>
 </div>
 </div>
 </div>
@@ -366,13 +371,13 @@ console.warn = function(...args) {
 <div class="max-w-screen-2xl mx-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 <div>
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary">System Monitoring</span>
-<h2 class="text-4xl font-black font-headline mt-2">Active Infrastructure</h2>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="products.sectionLabel">System Monitoring</span>
+<h2 class="text-4xl font-black font-headline mt-2" data-i18n="products.sectionTitle">Active Infrastructure</h2>
 </div>
 <div class="flex space-x-2">
 <div class="flex items-center space-x-2 bg-surface-container-high px-4 py-2 rounded-full">
 <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-<span class="text-xs font-headline font-bold">ALL SYSTEMS NOMINAL</span>
+<span class="text-xs font-headline font-bold" data-i18n="products.statusBadge">ALL SYSTEMS NOMINAL</span>
 </div>
 </div>
 </div>
@@ -382,13 +387,13 @@ console.warn = function(...args) {
 <div>
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase">macOS Available</span>
+<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.localbridge.status">macOS Available</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-4">LocalBridge</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8">The central hub that runs locally on your machine. Accepts WebSocket connections from browser extensions and exposes everything as a clean REST API for AI agents.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.localbridge.title">LocalBridge</h3>
+<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.localbridge.description">The central hub that runs locally on your machine. Accepts WebSocket connections from browser extensions and exposes everything as a clean REST API for AI agents.</p>
 </div>
 <div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span>Manage Node</span>
+<span data-i18n="products.localbridge.action">Manage Node</span>
 <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </div>
@@ -397,13 +402,13 @@ console.warn = function(...args) {
 <div>
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
-<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase">Developer Version</span>
+<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.tweetclaw.status">Developer Version</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-4">TweetClaw</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8">Chrome extension that binds your X/Twitter session to AI agents. Intercepts structured API responses and forwards them via WebSocket — no scraping, near-zero token overhead.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.tweetclaw.title">TweetClaw</h3>
+<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.tweetclaw.description">Chrome extension that binds your X/Twitter session to AI agents. Intercepts structured API responses and forwards them via WebSocket — no scraping, near-zero token overhead.</p>
 </div>
 <div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span>Provision Hub</span>
+<span data-i18n="products.tweetclaw.action">Provision Hub</span>
 <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </div>
@@ -412,13 +417,13 @@ console.warn = function(...args) {
 <div>
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-secondary" data-icon="fingerprint">fingerprint</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase">Developer Version</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.aiclaw.status">Developer Version</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-4">AIClaw</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8">Connects browser-based AI platforms (ChatGPT, Claude, Gemini) to your local agent workflow. Reduces token consumption overhead on web AI interfaces.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.aiclaw.title">AIClaw</h3>
+<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.aiclaw.description">Connects browser-based AI platforms (ChatGPT, Claude, Gemini) to your local agent workflow. Reduces token consumption overhead on web AI interfaces.</p>
 </div>
 <div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span>Secure Instance</span>
+<span data-i18n="products.aiclaw.action">Secure Instance</span>
 <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </div>
@@ -429,19 +434,19 @@ console.warn = function(...args) {
 <section class="py-24 bg-surface-container-highest/30">
 <div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-5 gap-20 items-center">
 <div class="lg:col-span-2 space-y-6">
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary">Developer SDK</span>
-<h2 class="text-5xl font-black font-headline text-on-surface">ClawBot Deep Integration</h2>
-<p class="text-lg text-on-surface-variant leading-relaxed">
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="code.sectionLabel">Developer SDK</span>
+<h2 class="text-5xl font-black font-headline text-on-surface" data-i18n="code.sectionTitle">ClawBot Deep Integration</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed" data-i18n="code.description">
                     Integrating AIHub nodes is as simple as five lines of Python. No complex auth handshakes, just pure lucid instruction flow.
                 </p>
 <ul class="space-y-4">
 <li class="flex items-start space-x-3">
 <span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="font-body font-medium">Auto-discovery of local bridge nodes</span>
+<span class="font-body font-medium" data-i18n="code.features.autoDiscovery">Auto-discovery of local bridge nodes</span>
 </li>
 <li class="flex items-start space-x-3">
 <span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="font-body font-medium">Asynchronous WebSocket event handling</span>
+<span class="font-body font-medium" data-i18n="code.features.asyncWebSocket">Asynchronous WebSocket event handling</span>
 </li>
 </ul>
 </div>
@@ -454,29 +459,29 @@ console.warn = function(...args) {
 <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
 </div>
 <div class="flex items-center space-x-4">
-<span class="text-slate-400 text-xs font-label">openclaw.py</span>
+<span class="text-slate-400 text-xs font-label" data-i18n="code.codeFile">openclaw.py</span>
 <a href="https://github.com/aiwithblockchain/aihub/blob/main/localBridge/clawBotCli/openclaw.py" target="_blank" rel="noopener" class="flex items-center text-slate-300 hover:text-white transition-colors">
 <span class="material-symbols-outlined text-sm mr-1" data-icon="code">code</span>
 <span class="text-[10px] font-bold uppercase tracking-widest">GitHub</span>
 </a>
 </div>
 </div>
-<pre class="p-6 text-xs md:text-sm leading-relaxed overflow-x-auto no-scrollbar"><span class="text-slate-400"># Step 1: ClawBot commands TweetClaw to read tweet</span>
+<pre class="p-6 text-xs md:text-sm leading-relaxed overflow-x-auto no-scrollbar"><span class="text-slate-400" data-i18n="code.comments.step1"># Step 1: ClawBot commands TweetClaw to read tweet</span>
 <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"read_tweet"</span>})
 <span class="text-slate-200">tweet_content</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"tweetclaw"</span>)
 
-<span class="text-slate-400"># Step 2: Send AI prompt to AIClaw for analysis</span>
+<span class="text-slate-400" data-i18n="code.comments.step2"># Step 2: Send AI prompt to AIClaw for analysis</span>
 <span class="text-slate-200">prompt</span> = <span class="text-emerald-400">"""
-</span><span class="text-cyan-200">请分析这篇推文要表达的内容，然后思考一下我们的 aihub
-作为一个降低 openclaw 消耗 token 的方案，能否得到他的
-帮助和推广。推文内容：【tweet_text】
+</span><span class="text-cyan-200" data-i18n="code.promptEnglish" data-i18n-zh="code.promptChinese">Analyze the content of this tweet and consider whether our aihub,
+as a solution to reduce openclaw token consumption, could benefit
+from their help and promotion. Tweet content: [tweet_text]
 
-要求：回复内容，表达精准简洁，附加我们的网站地址：
-https://aiwithblockchain.github.io/
+Requirements: Reply with precise and concise content, including
+our website: https://aiwithblockchain.github.io/
 </span><span class="text-emerald-400">"""</span>
 <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"aiclaw"</span>, <span class="text-slate-200">prompt</span>)
 
-<span class="text-slate-400"># Step 3: Get AI response and command TweetClaw to post</span>
+<span class="text-slate-400" data-i18n="code.comments.step3"># Step 3: Get AI response and command TweetClaw to post</span>
 <span class="text-slate-200">ai_response</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"aiclaw"</span>)
 <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"post"</span>, <span class="text-emerald-400">"content"</span>: <span class="text-slate-200">ai_response</span>})</pre>
 </div>
@@ -488,13 +493,13 @@ https://aiwithblockchain.github.io/
 <div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-sm">
 <div class="flex items-center justify-between mb-8">
 <div>
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block">Live Demo</span>
-<h3 class="text-3xl font-black font-headline text-on-surface">Watch It In Action</h3>
-<p class="text-on-surface-variant mt-2">See how Python scripts connect ChatGPT and Twitter using AIClaw, TweetClaw, and LocalBridge.</p>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block" data-i18n="video.sectionLabel">Live Demo</span>
+<h3 class="text-3xl font-black font-headline text-on-surface" data-i18n="video.sectionTitle">Watch It In Action</h3>
+<p class="text-on-surface-variant mt-2" data-i18n="video.description">See how Python scripts connect ChatGPT and Twitter using AIClaw, TweetClaw, and LocalBridge.</p>
 </div>
 <a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="hidden md:flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
 <span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
-Watch on YouTube
+<span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
 </a>
 </div>
 <div class="relative w-full" style="padding-bottom: 56.25%;">
@@ -502,7 +507,7 @@ Watch on YouTube
 </div>
 <a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="md:hidden flex items-center justify-center text-primary font-headline font-bold hover:text-primary-dim transition-colors mt-6">
 <span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
-Watch on YouTube
+<span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
 </a>
 </div>
 </div>
@@ -511,9 +516,9 @@ Watch on YouTube
 <section id="downloads" class="py-32 px-8 bg-surface-container-low">
 <div class="max-w-screen-2xl mx-auto">
 <div class="text-center mb-16">
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary">Get Started</span>
-<h2 class="text-5xl font-black font-headline text-on-surface mb-6 mt-2">Downloads</h2>
-<p class="text-xl text-on-surface-variant max-w-2xl mx-auto">Install LocalBridge and browser extensions to start building with AIHub.</p>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="downloads.sectionLabel">Get Started</span>
+<h2 class="text-5xl font-black font-headline text-on-surface mb-6 mt-2" data-i18n="downloads.sectionTitle">Downloads</h2>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="downloads.sectionDescription">Install LocalBridge and browser extensions to start building with AIHub.</p>
 </div>
 
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -521,14 +526,14 @@ Watch on YouTube
 <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase">macOS</span>
+<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.localbridge.platform">macOS</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-2">LocalBridge</h3>
-<p class="text-sm text-on-surface-variant mb-6">macOS 12+ · Apple Silicon & Intel</p>
+<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.localbridge.title">LocalBridge</h3>
+<p class="text-sm text-on-surface-variant mb-6" data-i18n="downloads.localbridge.description">macOS 12+ · Apple Silicon & Intel</p>
 <a href="assets/OpeHub.dmg" download>
 <button class="w-full px-6 py-3 bg-primary text-on-primary rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center">
 <span class="material-symbols-outlined mr-2" data-icon="download">download</span>
-Download .dmg
+<span data-i18n="downloads.localbridge.downloadBtn">Download .dmg</span>
 </button>
 </a>
 </div>
@@ -537,22 +542,22 @@ Download .dmg
 <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
-<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase">Chrome</span>
+<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.tweetclaw.platform">Chrome</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-2">TweetClaw</h3>
-<p class="text-sm text-on-surface-variant mb-6">Developer Version · Chrome Extension</p>
+<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.tweetclaw.title">TweetClaw</h3>
+<p class="text-sm text-on-surface-variant mb-6" data-i18n="downloads.tweetclaw.description">Developer Version · Chrome Extension</p>
 <a href="https://github.com/aiwithblockchain/aihub/releases/download/v1.0.2/tweetClaw-dist.zip" target="_blank" rel="noopener">
 <button class="w-full px-6 py-3 bg-tertiary text-on-tertiary rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-tertiary/20 transition-all flex items-center justify-center">
 <span class="material-symbols-outlined mr-2" data-icon="download">download</span>
-Download .zip
+<span data-i18n="downloads.tweetclaw.downloadBtn">Download .zip</span>
 </button>
 </a>
 <div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
-<strong class="text-on-surface">Installation:</strong><br/>
-1. Open chrome://extensions/<br/>
-2. Enable "Developer mode"<br/>
-3. Extract the zip file<br/>
-4. Click "Load unpacked" and select the folder
+<strong class="text-on-surface" data-i18n="downloads.tweetclaw.installationTitle">Installation:</strong><br/>
+<span data-i18n="downloads.tweetclaw.installStep1">1. Open chrome://extensions/</span><br/>
+<span data-i18n="downloads.tweetclaw.installStep2">2. Enable "Developer mode"</span><br/>
+<span data-i18n="downloads.tweetclaw.installStep3">3. Extract the zip file</span><br/>
+<span data-i18n="downloads.tweetclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
 </div>
 </div>
 
@@ -560,22 +565,22 @@ Download .zip
 <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
 <div class="flex justify-between items-start mb-6">
 <span class="material-symbols-outlined text-4xl text-secondary" data-icon="fingerprint">fingerprint</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase">Chrome</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.aiclaw.platform">Chrome</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-2">AIClaw</h3>
-<p class="text-sm text-on-surface-variant mb-6">Developer Version · Chrome Extension</p>
+<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.aiclaw.title">AIClaw</h3>
+<p class="text-sm text-on-surface-variant mb-6" data-i18n="downloads.aiclaw.description">Developer Version · Chrome Extension</p>
 <a href="https://github.com/aiwithblockchain/aihub/releases/download/v1.0.2/aiClaw-dist.zip" target="_blank" rel="noopener">
 <button class="w-full px-6 py-3 bg-secondary text-on-secondary rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-secondary/20 transition-all flex items-center justify-center">
 <span class="material-symbols-outlined mr-2" data-icon="download">download</span>
-Download .zip
+<span data-i18n="downloads.aiclaw.downloadBtn">Download .zip</span>
 </button>
 </a>
 <div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
-<strong class="text-on-surface">Installation:</strong><br/>
-1. Open chrome://extensions/<br/>
-2. Enable "Developer mode"<br/>
-3. Extract the zip file<br/>
-4. Click "Load unpacked" and select the folder
+<strong class="text-on-surface" data-i18n="downloads.aiclaw.installationTitle">Installation:</strong><br/>
+<span data-i18n="downloads.aiclaw.installStep1">1. Open chrome://extensions/</span><br/>
+<span data-i18n="downloads.aiclaw.installStep2">2. Enable "Developer mode"</span><br/>
+<span data-i18n="downloads.aiclaw.installStep3">3. Extract the zip file</span><br/>
+<span data-i18n="downloads.aiclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
 </div>
 </div>
 </div>
@@ -583,7 +588,7 @@ Download .zip
 <div class="text-center">
 <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener" class="inline-flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
 <span class="material-symbols-outlined mr-2" data-icon="code">code</span>
-View Source Code on GitHub
+<span data-i18n="downloads.viewSourceCode">View Source Code on GitHub</span>
 <span class="material-symbols-outlined ml-2" data-icon="arrow_forward">arrow_forward</span>
 </a>
 </div>
@@ -594,8 +599,8 @@ View Source Code on GitHub
 <section id="integration" class="py-32 px-8">
 <div class="max-w-screen-2xl mx-auto">
 <div class="text-center mb-24">
-<h2 class="text-5xl font-black font-headline text-on-surface mb-6">Start Engineering</h2>
-<p class="text-xl text-on-surface-variant max-w-2xl mx-auto">Go from zero to a distributed autonomous mesh in under three minutes.</p>
+<h2 class="text-5xl font-black font-headline text-on-surface mb-6" data-i18n="integration.sectionTitle">Start Engineering</h2>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="integration.sectionDescription">Go from zero to a distributed autonomous mesh in under three minutes.</p>
 </div>
 <div class="grid md:grid-cols-3 gap-12 mb-24">
 <div class="relative group">
@@ -603,41 +608,41 @@ View Source Code on GitHub
 <span class="material-symbols-outlined text-on-primary-container text-4xl" data-icon="download">download</span>
 </div>
 <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-surface-container opacity-50 select-none">1</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Download LocalBridge</h3>
-<p class="text-on-surface-variant leading-relaxed">Download LocalBridge for macOS. Windows and Linux versions coming soon.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step1.title">Download LocalBridge</h3>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step1.description">Download LocalBridge for macOS. Windows and Linux versions coming soon.</p>
 </div>
 <div class="relative group">
 <div class="mb-8 w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center shadow-xl shadow-secondary/10 group-hover:rotate-6 transition-transform">
 <span class="material-symbols-outlined text-on-secondary-container text-4xl" data-icon="power">power</span>
 </div>
 <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-surface-container opacity-50 select-none">2</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Install Extensions</h3>
-<p class="text-on-surface-variant leading-relaxed">Install TweetClaw or AIClaw browser extensions. Developer versions available now, Chrome Web Store coming soon.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step2.title">Install Extensions</h3>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step2.description">Install TweetClaw or AIClaw browser extensions. Developer versions available now, Chrome Web Store coming soon.</p>
 </div>
 <div class="relative group">
 <div class="mb-8 w-20 h-20 bg-tertiary-container rounded-2xl flex items-center justify-center shadow-xl shadow-tertiary/10 group-hover:rotate-6 transition-transform">
 <span class="material-symbols-outlined text-on-tertiary-container text-4xl" data-icon="rocket_launch">rocket_launch</span>
 </div>
 <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-surface-container opacity-50 select-none">3</div>
-<h3 class="text-2xl font-headline font-bold mb-4">Connect & Run</h3>
-<p class="text-on-surface-variant leading-relaxed">Launch LocalBridge and your extensions will auto-connect. Start sending structured commands to your AI agents.</p>
+<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step3.title">Connect & Run</h3>
+<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step3.description">Launch LocalBridge and your extensions will auto-connect. Start sending structured commands to your AI agents.</p>
 </div>
 </div>
 <!-- Updated Call to Action Bar -->
 <div class="bg-primary p-2 rounded-[2rem]">
 <div class="bg-on-primary-container/20 rounded-[1.8rem] px-8 py-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8">
 <div>
-<h2 class="text-3xl font-black font-headline text-white mb-2">Ready to build with AIHub?</h2>
-<p class="text-on-primary/70">Open source infrastructure for AI agents. MIT License.</p>
+<h2 class="text-3xl font-black font-headline text-white mb-2" data-i18n="integration.cta.title">Ready to build with AIHub?</h2>
+<p class="text-on-primary/70" data-i18n="integration.cta.description">Open source infrastructure for AI agents. MIT License.</p>
 </div>
 <div class="flex gap-4">
 <a href="#downloads">
-<button class="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-headline font-bold text-lg hover:scale-105 transition-transform">Download Now</button>
+<button class="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-headline font-bold text-lg hover:scale-105 transition-transform" data-i18n="integration.cta.downloadBtn">Download Now</button>
 </a>
 <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
 <button class="px-8 py-4 border-2 border-primary-container text-primary-container rounded-xl font-headline font-bold text-lg hover:bg-primary-container/10 transition-colors flex items-center">
 <span class="material-symbols-outlined mr-2" data-icon="code">code</span>
-View on GitHub
+<span data-i18n="integration.cta.githubBtn">View on GitHub</span>
 </button>
 </a>
 </div>
@@ -651,31 +656,31 @@ View on GitHub
 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 max-w-screen-2xl mx-auto">
 <div class="col-span-2">
 <div class="text-xl font-bold text-slate-900 mb-6">AIHub</div>
-<p class="text-slate-500 text-sm max-w-xs leading-relaxed mb-8">Open protocol infrastructure that bridges AI agents with the real web through structured data APIs.</p>
-<p class="text-slate-400 text-xs font-label uppercase tracking-widest">© 2025 AIHub. MIT License.</p>
+<p class="text-slate-500 text-sm max-w-xs leading-relaxed mb-8" data-i18n="footer.description">Open protocol infrastructure that bridges AI agents with the real web through structured data APIs.</p>
+<p class="text-slate-400 text-xs font-label uppercase tracking-widest" data-i18n="footer.copyright">© 2025 AIHub. MIT License.</p>
 </div>
 <div>
-<h4 class="font-headline font-bold text-slate-900 mb-6">Product</h4>
+<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.product.title">Product</h4>
 <ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#architecture">Architecture</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#products">Products</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#downloads">Downloads</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#integration">Integration</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#architecture" data-i18n="footer.product.architecture">Architecture</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#products" data-i18n="footer.product.products">Products</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#downloads" data-i18n="footer.product.downloads">Downloads</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#integration" data-i18n="footer.product.integration">Integration</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-headline font-bold text-slate-900 mb-6">Resources</h4>
+<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.resources.title">Resources</h4>
 <ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">GitHub</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/releases" target="_blank" rel="noopener">Releases</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/issues" target="_blank" rel="noopener">Issues</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener" data-i18n="footer.resources.github">GitHub</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/releases" target="_blank" rel="noopener" data-i18n="footer.resources.releases">Releases</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/issues" target="_blank" rel="noopener" data-i18n="footer.resources.issues">Issues</a></li>
 </ul>
 </div>
 <div>
-<h4 class="font-headline font-bold text-slate-900 mb-6">Legal</h4>
+<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.legal.title">Legal</h4>
 <ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="privacy.html">Privacy Policy</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="Copyright.html">Copyright</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="privacy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="Copyright.html" data-i18n="footer.legal.copyright">Copyright</a></li>
 </ul>
 </div>
 <div class="flex flex-col items-end justify-end space-y-4">
@@ -690,4 +695,27 @@ View on GitHub
 </div>
 </div>
 </footer>
+
+<!-- i18n Scripts -->
+<script src="assets/js/i18n-core.js"></script>
+<script src="assets/js/i18n-data.js"></script>
+<script>
+  // 初始化 i18n
+  document.addEventListener('DOMContentLoaded', function() {
+    // 初始化语言并更新 DOM
+    window.i18n.updateDOM();
+
+    // 设置 HTML lang 属性
+    document.documentElement.lang = window.i18n.getCurrentLanguage();
+
+    // 绑定语言切换按钮
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', function() {
+        window.i18n.toggleLanguage();
+      });
+    }
+  });
+</script>
+
 </body></html>
