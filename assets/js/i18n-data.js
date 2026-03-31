@@ -203,7 +203,8 @@ const i18nDownloadsIntegration = {
         title: 'TweetClaw',
         platform: 'Chrome',
         description: '开发者版本 · Chrome 扩展',
-        downloadBtn: '下载 .zip',
+        webStoreBtn: 'Chrome 应用商店',
+        downloadBtn: '开发者 .zip',
         installationTitle: '安装说明:',
         installStep1: '1. 打开 chrome://extensions/',
         installStep2: '2. 启用"开发者模式"',
@@ -214,7 +215,8 @@ const i18nDownloadsIntegration = {
         title: 'AIClaw',
         platform: 'Chrome',
         description: '开发者版本 · Chrome 扩展',
-        downloadBtn: '下载 .zip',
+        webStoreBtn: 'Chrome 应用商店',
+        downloadBtn: '开发者 .zip',
         installationTitle: '安装说明:',
         installStep1: '1. 打开 chrome://extensions/',
         installStep2: '2. 启用"开发者模式"',
@@ -261,7 +263,8 @@ const i18nDownloadsIntegration = {
         title: 'TweetClaw',
         platform: 'Chrome',
         description: 'Developer Version · Chrome Extension',
-        downloadBtn: 'Download .zip',
+        webStoreBtn: 'Chrome Web Store',
+        downloadBtn: 'Developer .zip',
         installationTitle: 'Installation:',
         installStep1: '1. Open chrome://extensions/',
         installStep2: '2. Enable "Developer mode"',
@@ -272,7 +275,8 @@ const i18nDownloadsIntegration = {
         title: 'AIClaw',
         platform: 'Chrome',
         description: 'Developer Version · Chrome Extension',
-        downloadBtn: 'Download .zip',
+        webStoreBtn: 'Chrome Web Store',
+        downloadBtn: 'Developer .zip',
         installationTitle: 'Installation:',
         installStep1: '1. Open chrome://extensions/',
         installStep2: '2. Enable "Developer mode"',
@@ -321,7 +325,7 @@ function mergeTranslations(...sources) {
   return result;
 }
 
-const allTranslations = mergeTranslations(i18nNavFooter, i18nHeroArch, i18nDownloadsIntegration);
+const allTranslations = mergeTranslations(i18nNavFooter, i18nHeroArch, i18nDownloadsIntegration, typeof i18nProductsCode !== 'undefined' ? i18nProductsCode : {});
 
 // 注册所有翻译数据到全局 i18n 实例
 // Register all translation data to global i18n instance
