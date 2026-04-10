@@ -202,7 +202,7 @@ const i18nDownloadsIntegration = {
       tweetclaw: {
         title: 'TweetClaw',
         platform: 'Chrome',
-        description: '开发者版本 · Chrome 扩展',
+        description: '开发者版本 (v0.5.0) · Chrome 扩展',
         webStoreBtn: 'Chrome 应用商店',
         downloadBtn: '开发者 .zip',
         installationTitle: '安装说明:',
@@ -262,7 +262,7 @@ const i18nDownloadsIntegration = {
       tweetclaw: {
         title: 'TweetClaw',
         platform: 'Chrome',
-        description: 'Developer Version · Chrome Extension',
+        description: 'Developer Version (v0.5.0) · Chrome Extension',
         webStoreBtn: 'Chrome Web Store',
         downloadBtn: 'Developer .zip',
         installationTitle: 'Installation:',
