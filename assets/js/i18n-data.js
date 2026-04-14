@@ -197,7 +197,8 @@ const i18nDownloadsIntegration = {
         title: 'LocalBridge',
         platform: 'macOS',
         description: 'macOS 12+ · Apple Silicon & Intel',
-        downloadBtn: '下载 .dmg'
+        downloadBtn: '下载 .dmg',
+        appStoreBtn: 'Mac App Store'
       },
       tweetclaw: {
         title: 'TweetClaw',
@@ -257,7 +258,8 @@ const i18nDownloadsIntegration = {
         title: 'LocalBridge',
         platform: 'macOS',
         description: 'macOS 12+ · Apple Silicon & Intel',
-        downloadBtn: 'Download .dmg'
+        downloadBtn: 'Download .dmg',
+        appStoreBtn: 'Mac App Store'
       },
       tweetclaw: {
         title: 'TweetClaw',
