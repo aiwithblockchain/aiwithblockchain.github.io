@@ -1,472 +1,626 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AIHub — Structured Intelligence Infrastructure</title>
-<meta name="description" content="AIHub is an open protocol that bridges AI agents with the real web — turning browser sessions and local apps into structured data APIs, slashing token costs and unlocking agentic automation at scale.">
-<script>
-// Suppress console warnings for production
-const originalWarn = console.warn;
-console.warn = function(...args) {
-  const msg = args[0]?.toString() || '';
-  if (msg.includes('cdn.tailwindcss.com') ||
-      msg.includes('should not be used in production')) return;
-  originalWarn.apply(console, args);
-};
-</script>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                "secondary-container": "#ffc965",
-                "tertiary-fixed": "#feb700",
-                "inverse-primary": "#00d9ff",
-                "secondary": "#785500",
-                "error-container": "#fb5151",
-                "on-error-container": "#570008",
-                "surface-container": "#e6e8ea",
-                "primary": "#006477",
-                "surface-container-high": "#e0e3e4",
-                "on-primary-fixed": "#00313b",
-                "on-primary-fixed-variant": "#005160",
-                "on-surface-variant": "#595c5d",
-                "on-secondary-container": "#5f4200",
-                "surface-container-lowest": "#ffffff",
-                "on-secondary": "#fff1de",
-                "tertiary": "#785500",
-                "primary-fixed-dim": "#00caed",
-                "on-primary-container": "#004755",
-                "inverse-on-surface": "#9b9d9e",
-                "tertiary-container": "#feb700",
-                "on-secondary-fixed": "#463000",
-                "secondary-fixed": "#ffc965",
-                "on-tertiary-fixed": "#392700",
-                "surface": "#f5f6f7",
-                "on-tertiary-container": "#533a00",
-                "surface-container-low": "#eff1f2",
-                "secondary-fixed-dim": "#feb700",
-                "surface-variant": "#dadddf",
-                "surface-tint": "#006477",
-                "outline": "#757778",
-                "on-background": "#2c2f30",
-                "outline-variant": "#abadae",
-                "on-tertiary": "#fff1de",
-                "surface-dim": "#d1d5d7",
-                "tertiary-fixed-dim": "#ecaa00",
-                "background": "#f5f6f7",
-                "on-primary": "#dff7ff",
-                "surface-bright": "#f5f6f7",
-                "on-tertiary-fixed-variant": "#5f4200",
-                "tertiary-dim": "#694a00",
-                "primary-container": "#00d9ff",
-                "primary-fixed": "#00d9ff",
-                "error-dim": "#9f0519",
-                "on-error": "#ffefee",
-                "on-surface": "#2c2f30",
-                "surface-container-highest": "#dadddf",
-                "error": "#b31b25",
-                "primary-dim": "#005868",
-                "inverse-surface": "#0c0f10",
-                "secondary-dim": "#694a00",
-                "on-secondary-fixed-variant": "#6b4b00"
-              },
-              fontFamily: {
-                "headline": ["Space Grotesk"],
-                "body": ["Manrope"],
-                "label": ["Space Grotesk"]
-              },
-              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
-              animation: {
-                'instruction-flow': 'instruction-flow 3s linear infinite',
-                'response-flow': 'response-flow 3s linear infinite',
-              },
-              keyframes: {
-                'instruction-flow': {
-                  '0%': { transform: 'translateY(-150px)', opacity: '0' },
-                  '10%': { opacity: '1' },
-                  '50%': { transform: 'translateY(0px)' },
-                  '90%': { opacity: '1' },
-                  '100%': { transform: 'translateY(150px)', opacity: '0' },
-                },
-                'response-flow': {
-                  '0%': { transform: 'translateY(150px)', opacity: '0' },
-                  '10%': { opacity: '1' },
-                  '50%': { transform: 'translateY(0px)' },
-                  '90%': { opacity: '1' },
-                  '100%': { transform: 'translateY(-150px)', opacity: '0' },
-                }
-              }
-            },
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AIHub — Structured Intelligence Infrastructure</title>
+  <meta name="description"
+    content="AIHub is an open protocol that bridges AI agents with the real web — turning browser sessions and local apps into structured data APIs, slashing token costs and unlocking agentic automation at scale.">
+  <script>
+    // Suppress console warnings for production
+    const originalWarn = console.warn;
+    console.warn = function (...args) {
+      const msg = args[0]?.toString() || '';
+      if (msg.includes('cdn.tailwindcss.com') ||
+        msg.includes('should not be used in production')) return;
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#ffc965",
+            "tertiary-fixed": "#feb700",
+            "inverse-primary": "#00d9ff",
+            "secondary": "#785500",
+            "error-container": "#fb5151",
+            "on-error-container": "#570008",
+            "surface-container": "#e6e8ea",
+            "primary": "#006477",
+            "surface-container-high": "#e0e3e4",
+            "on-primary-fixed": "#00313b",
+            "on-primary-fixed-variant": "#005160",
+            "on-surface-variant": "#595c5d",
+            "on-secondary-container": "#5f4200",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#fff1de",
+            "tertiary": "#785500",
+            "primary-fixed-dim": "#00caed",
+            "on-primary-container": "#004755",
+            "inverse-on-surface": "#9b9d9e",
+            "tertiary-container": "#feb700",
+            "on-secondary-fixed": "#463000",
+            "secondary-fixed": "#ffc965",
+            "on-tertiary-fixed": "#392700",
+            "surface": "#f5f6f7",
+            "on-tertiary-container": "#533a00",
+            "surface-container-low": "#eff1f2",
+            "secondary-fixed-dim": "#feb700",
+            "surface-variant": "#dadddf",
+            "surface-tint": "#006477",
+            "outline": "#757778",
+            "on-background": "#2c2f30",
+            "outline-variant": "#abadae",
+            "on-tertiary": "#fff1de",
+            "surface-dim": "#d1d5d7",
+            "tertiary-fixed-dim": "#ecaa00",
+            "background": "#f5f6f7",
+            "on-primary": "#dff7ff",
+            "surface-bright": "#f5f6f7",
+            "on-tertiary-fixed-variant": "#5f4200",
+            "tertiary-dim": "#694a00",
+            "primary-container": "#00d9ff",
+            "primary-fixed": "#00d9ff",
+            "error-dim": "#9f0519",
+            "on-error": "#ffefee",
+            "on-surface": "#2c2f30",
+            "surface-container-highest": "#dadddf",
+            "error": "#b31b25",
+            "primary-dim": "#005868",
+            "inverse-surface": "#0c0f10",
+            "secondary-dim": "#694a00",
+            "on-secondary-fixed-variant": "#6b4b00"
           },
-        }
-    </script>
-<style>
-        body { font-family: 'Manrope', sans-serif; background-color: #f5f6f7; color: #2c2f30; }
-        .font-headline { font-family: 'Space Grotesk', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Custom path animations for dots */
-        @keyframes dot-path-top-down {
-            0% { offset-distance: 0%; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { offset-distance: 100%; opacity: 0; }
-        }
-        .animate-dot-down {
-            animation: dot-path-top-down 4s linear infinite;
-        }
-        .animate-dot-up {
-            animation: dot-path-top-down 4s linear reverse infinite;
-        }
-    </style>
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Manrope"],
+            "label": ["Space Grotesk"]
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+          animation: {
+            'instruction-flow': 'instruction-flow 3s linear infinite',
+            'response-flow': 'response-flow 3s linear infinite',
+          },
+          keyframes: {
+            'instruction-flow': {
+              '0%': { transform: 'translateY(-150px)', opacity: '0' },
+              '10%': { opacity: '1' },
+              '50%': { transform: 'translateY(0px)' },
+              '90%': { opacity: '1' },
+              '100%': { transform: 'translateY(150px)', opacity: '0' },
+            },
+            'response-flow': {
+              '0%': { transform: 'translateY(150px)', opacity: '0' },
+              '10%': { opacity: '1' },
+              '50%': { transform: 'translateY(0px)' },
+              '90%': { opacity: '1' },
+              '100%': { transform: 'translateY(-150px)', opacity: '0' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #f5f6f7;
+      color: #2c2f30;
+    }
+
+    .font-headline {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Custom path animations for dots */
+    @keyframes dot-path-top-down {
+      0% {
+        offset-distance: 0%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        offset-distance: 100%;
+        opacity: 0;
+      }
+    }
+
+    .animate-dot-down {
+      animation: dot-path-top-down 4s linear infinite;
+    }
+
+    .animate-dot-up {
+      animation: dot-path-top-down 4s linear reverse infinite;
+    }
+  </style>
 </head>
+
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-<!-- TopAppBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-xl shadow-cyan-500/5 h-20 flex items-center">
-<div class="flex justify-between items-center px-8 w-full max-w-screen-2xl mx-auto">
-<div class="text-2xl font-black tracking-tighter text-cyan-500">AIHub</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-cyan-600 font-bold border-b-2 border-cyan-500 font-label uppercase tracking-wider text-sm" href="#hero" data-i18n="nav.home">Home</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#architecture" data-i18n="nav.architecture">Architecture</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#products" data-i18n="nav.products">Products</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#integration" data-i18n="nav.integration">Integration</a>
-<a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm" href="#downloads" data-i18n="nav.download">Download</a>
-</div>
-<div class="flex items-center space-x-4">
-<button id="lang-toggle" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center text-slate-600 transition-all duration-200 hover:scale-95" title="切换语言 / Switch Language">
-<span class="material-symbols-outlined text-xl">language</span>
-</button>
-<a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
-<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label font-bold text-sm hover:scale-95 transition-transform duration-100" data-i18n="nav.github">
-            GitHub
+  <!-- TopAppBar -->
+  <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-xl shadow-cyan-500/5 h-20 flex items-center">
+    <div class="flex justify-between items-center px-8 w-full max-w-screen-2xl mx-auto">
+      <div class="text-2xl font-black tracking-tighter text-cyan-500">AIHub</div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-cyan-600 font-bold border-b-2 border-cyan-500 font-label uppercase tracking-wider text-sm"
+          href="#hero" data-i18n="nav.home">Home</a>
+        <a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm"
+          href="#architecture" data-i18n="nav.architecture">Architecture</a>
+        <a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm"
+          href="#products" data-i18n="nav.products">Products</a>
+        <a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm"
+          href="#integration" data-i18n="nav.integration">Integration</a>
+        <a class="text-slate-600 font-medium hover:text-cyan-500 transition-colors duration-200 font-label uppercase tracking-wider text-sm"
+          href="#downloads" data-i18n="nav.download">Download</a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button id="lang-toggle"
+          class="w-10 h-10 rounded-full bg-slate-100 hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center text-slate-600 transition-all duration-200 hover:scale-95"
+          title="切换语言 / Switch Language">
+          <span class="material-symbols-outlined text-xl">language</span>
         </button>
-</a>
-</div>
-</div>
-</nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative overflow-hidden pt-20 pb-32 px-8">
-<div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-container/20 via-surface to-surface"></div>
-<div class="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-<div class="space-y-8">
-<div class="inline-flex items-center px-4 py-2 bg-secondary-container/30 text-on-secondary-container rounded-full border border-secondary-container/20">
-<span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="font-label text-xs font-bold uppercase tracking-widest" data-i18n="hero.badge">Open Protocol · v0.1 · Alpha</span>
-</div>
-<h1 class="text-6xl md:text-8xl font-black font-headline leading-[0.9] tracking-tighter text-on-surface" data-i18n="hero.title">
-                    90% Token <br/>
-<span class="text-primary">Reduction.</span>
-</h1>
-<p class="text-xl text-on-surface-variant max-w-lg font-body leading-relaxed" data-i18n="hero.description">
-                    AIHub is an open infrastructure protocol that turns browser sessions and local apps into structured data APIs — dramatically cutting token costs and unlocking reliable agentic automation at scale.
-                </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="#downloads">
-<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all" data-i18n="hero.downloadBtn">Download Now</button>
-</a>
-<a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
-<button class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-xl font-headline font-bold text-lg hover:bg-surface-variant transition-all" data-i18n="hero.githubBtn">View on GitHub</button>
-</a>
-</div>
-</div>
-<!-- Updated Hero Diagram -->
-<div class="relative bg-surface-container-lowest p-8 rounded-xl aspect-square flex items-center justify-center overflow-hidden shadow-2xl shadow-slate-200/50">
-<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-<div class="relative w-full h-full rounded-lg flex items-center justify-center">
-<!-- SVG Connection Lines Background -->
-<svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-<!-- Lines connecting nodes (adjusted to match absolute positioned nodes) -->
-<path class="text-outline-variant/30" d="M23 18 L50 50 M77 18 L50 50 M50 50 L23 82 M50 50 L77 82" fill="none" stroke="currentColor" stroke-dasharray="2" stroke-width="0.5"></path>
-<!-- Animated Instructions (Amber) - moving down -->
-<circle fill="#feb700" r="1.5">
-<animateMotion dur="4s" repeatCount="indefinite" path="M23 18 L50 50 L77 82"/>
-</circle>
-<circle fill="#feb700" r="1.5">
-<animateMotion dur="4s" repeatCount="indefinite" begin="1s" path="M77 18 L50 50 L23 82"/>
-</circle>
-<!-- Animated Response (Cyan) - moving up -->
-<circle fill="#00d9ff" r="1.5">
-<animateMotion dur="4s" repeatCount="indefinite" begin="0.5s" path="M77 82 L50 50 L23 18"/>
-</circle>
-<circle fill="#00d9ff" r="1.5">
-<animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M23 82 L50 50 L77 18"/>
-</circle>
-</svg>
+        <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
+          <button
+            class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label font-bold text-sm hover:scale-95 transition-transform duration-100"
+            data-i18n="nav.github">
+            GitHub
+          </button>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-20 pb-32 px-8">
+      <div
+        class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-container/20 via-surface to-surface">
+      </div>
+      <div class="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-secondary-container/30 text-on-secondary-container rounded-full border border-secondary-container/20">
+            <span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            <span class="font-label text-xs font-bold uppercase tracking-widest" data-i18n="hero.badge">Open Protocol ·
+              v0.1 · Alpha</span>
+          </div>
+          <h1 class="text-6xl md:text-8xl font-black font-headline leading-[0.9] tracking-tighter text-on-surface"
+            data-i18n="hero.title">
+            90% Token <br />
+            <span class="text-primary">Reduction.</span>
+          </h1>
+          <p class="text-xl text-on-surface-variant max-w-lg font-body leading-relaxed" data-i18n="hero.description">
+            AIHub is an open infrastructure protocol that turns browser sessions and local apps into structured data
+            APIs — dramatically cutting token costs and unlocking reliable agentic automation at scale.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#downloads">
+              <button
+                class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all"
+                data-i18n="hero.downloadBtn">Download Now</button>
+            </a>
+            <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
+              <button
+                class="px-8 py-4 bg-surface-container-highest text-on-surface rounded-xl font-headline font-bold text-lg hover:bg-surface-variant transition-all"
+                data-i18n="hero.githubBtn">View on GitHub</button>
+            </a>
+          </div>
+        </div>
+        <!-- Updated Hero Diagram -->
+        <div
+          class="relative bg-surface-container-lowest p-8 rounded-xl aspect-square flex items-center justify-center overflow-hidden shadow-2xl shadow-slate-200/50">
+          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+          </div>
+          <div class="relative w-full h-full rounded-lg flex items-center justify-center">
+            <!-- SVG Connection Lines Background -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100"
+              preserveAspectRatio="none">
+              <!-- Lines connecting nodes (adjusted to match absolute positioned nodes) -->
+              <path class="text-outline-variant/30" d="M23 18 L50 50 M77 18 L50 50 M50 50 L23 82 M50 50 L77 82"
+                fill="none" stroke="currentColor" stroke-dasharray="2" stroke-width="0.5"></path>
+              <!-- Animated Instructions (Amber) - moving down -->
+              <circle fill="#feb700" r="1.5">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M23 18 L50 50 L77 82" />
+              </circle>
+              <circle fill="#feb700" r="1.5">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="1s" path="M77 18 L50 50 L23 82" />
+              </circle>
+              <!-- Animated Response (Cyan) - moving up -->
+              <circle fill="#00d9ff" r="1.5">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="0.5s" path="M77 82 L50 50 L23 18" />
+              </circle>
+              <circle fill="#00d9ff" r="1.5">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M23 82 L50 50 L77 18" />
+              </circle>
+            </svg>
 
-<!-- Top Left Node (AI Agent) -->
-<div class="absolute top-[10%] left-[15%] w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center shadow-lg shadow-tertiary/20 z-10">
-<span class="material-symbols-outlined text-on-tertiary-container text-3xl" data-icon="smart_toy">smart_toy</span>
-</div>
+            <!-- Top Left Node (AI Agent) -->
+            <div
+              class="absolute top-[10%] left-[15%] w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center shadow-lg shadow-tertiary/20 z-10">
+              <span class="material-symbols-outlined text-on-tertiary-container text-3xl"
+                data-icon="smart_toy">smart_toy</span>
+            </div>
 
-<!-- Top Right Node (Terminal) -->
-<div class="absolute top-[10%] right-[15%] w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center shadow-lg shadow-tertiary/20 z-10">
-<span class="material-symbols-outlined text-on-tertiary-container text-3xl" data-icon="terminal">terminal</span>
-</div>
+            <!-- Top Right Node (Terminal) -->
+            <div
+              class="absolute top-[10%] right-[15%] w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center shadow-lg shadow-tertiary/20 z-10">
+              <span class="material-symbols-outlined text-on-tertiary-container text-3xl"
+                data-icon="terminal">terminal</span>
+            </div>
 
-<!-- Central Bridge -->
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-2xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-2xl z-10 border-4 border-surface-container-lowest">
-<div class="absolute -top-3 -right-3 bg-primary-container text-on-primary-container px-2 py-1 rounded-md text-[8px] font-black font-headline">LOCALBRIDGE</div>
-<span class="material-symbols-outlined text-3xl" data-icon="hub">hub</span>
-<div class="mt-1.5 text-[10px] font-headline font-bold uppercase tracking-widest" data-i18n="hero.activeNode">Active Node</div>
-</div>
+            <!-- Central Bridge -->
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-2xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-2xl z-10 border-4 border-surface-container-lowest">
+              <div
+                class="absolute -top-3 -right-3 bg-primary-container text-on-primary-container px-2 py-1 rounded-md text-[8px] font-black font-headline">
+                LOCALBRIDGE</div>
+              <span class="material-symbols-outlined text-3xl" data-icon="hub">hub</span>
+              <div class="mt-1.5 text-[10px] font-headline font-bold uppercase tracking-widest"
+                data-i18n="hero.activeNode">Active Node</div>
+            </div>
 
-<!-- Bottom Left Node (Extension) -->
-<div class="absolute bottom-[10%] left-[15%] w-16 h-16 rounded-full bg-primary-container flex items-center justify-center shadow-lg shadow-primary/20 z-10">
-<span class="material-symbols-outlined text-on-primary-container text-3xl" data-icon="extension">extension</span>
-</div>
+            <!-- Bottom Left Node (Extension) -->
+            <div
+              class="absolute bottom-[10%] left-[15%] w-16 h-16 rounded-full bg-primary-container flex items-center justify-center shadow-lg shadow-primary/20 z-10">
+              <span class="material-symbols-outlined text-on-primary-container text-3xl"
+                data-icon="extension">extension</span>
+            </div>
 
-<!-- Bottom Right Node (Web) -->
-<div class="absolute bottom-[10%] right-[15%] w-16 h-16 rounded-full bg-primary-container flex items-center justify-center shadow-lg shadow-primary/20 z-10">
-<span class="material-symbols-outlined text-on-primary-container text-3xl" data-icon="public">public</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Interactive Architecture -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-screen-2xl mx-auto px-8 relative">
-<div class="text-center mb-20">
-<h2 class="text-4xl md:text-5xl font-black font-headline text-on-surface mb-4" data-i18n="architecture.title">Core Architecture</h2>
-<p class="text-on-surface-variant font-body mb-6" data-i18n="architecture.subtitle">Real-time instruction routing via the LocalBridge mesh.</p>
-<!-- Legend Position - Centered below title -->
-<div class="flex items-center justify-center space-x-8">
-<div class="flex items-center space-x-2">
-<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant" data-i18n="architecture.legend.instructions">REST API (Instructions)</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="w-2.5 h-2.5 rounded-full bg-inverse-primary"></span>
-<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant" data-i18n="architecture.legend.response">WebSocket (Response)</span>
-</div>
-</div>
-</div>
-<div class="relative bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm border border-outline-variant/10">
-<!-- SVG Connection Lines & Flow Animation -->
-<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
-<!-- Vertical lines from top nodes to center -->
-<line x1="16.67" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor" stroke-width="0.3"/>
-<line x1="50" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor" stroke-width="0.3"/>
-<line x1="83.33" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor" stroke-width="0.3"/>
-<!-- Vertical lines from center to bottom nodes -->
-<line x1="50" y1="55" x2="33.33" y2="80" class="text-outline-variant/20" stroke="currentColor" stroke-width="0.3"/>
-<line x1="50" y1="55" x2="66.67" y2="80" class="text-outline-variant/20" stroke="currentColor" stroke-width="0.3"/>
-<!-- Animated dots (Instructions - Amber, moving down) -->
-<circle fill="#feb700" r="1.2">
-<animateMotion dur="5s" repeatCount="indefinite" path="M16.67 15 L50 45 L33.33 80"/>
-</circle>
-<circle fill="#feb700" r="1.2">
-<animateMotion dur="5s" repeatCount="indefinite" begin="1.5s" path="M50 15 L50 45 L66.67 80"/>
-</circle>
-<!-- Animated dots (Response - Cyan, moving up) -->
-<circle fill="#00d9ff" r="1.2">
-<animateMotion dur="5s" repeatCount="indefinite" begin="0.5s" path="M66.67 80 L50 55 L83.33 15"/>
-</circle>
-<circle fill="#00d9ff" r="1.2">
-<animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M33.33 80 L50 55 L16.67 15"/>
-</circle>
-</svg>
-<!-- Top Nodes -->
-<div class="grid grid-cols-3 gap-8 mb-16 relative z-10">
-<div class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
-<div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-tertiary text-xl" data-icon="smart_toy">smart_toy</span>
-</div>
-<div>
-<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.aiAgent.title">AI Agent</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.aiAgent.description">Autonomous Logic</p>
-</div>
-</div>
-<div class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
-<div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-tertiary text-xl" data-icon="code">code</span>
-</div>
-<div>
-<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.ideSdk.title">IDE/SDK</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.ideSdk.description">Manual Injection</p>
-</div>
-</div>
-<div class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
-<div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-tertiary text-xl" data-icon="terminal">terminal</span>
-</div>
-<div>
-<h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.shellScripts.title">Shell Scripts</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold" data-i18n="architecture.topNodes.shellScripts.description">CLI Orchestration</p>
-</div>
-</div>
-</div>
-<!-- Central Node -->
-<div class="flex justify-center mb-16 relative z-10">
-<div class="bg-primary px-8 py-5 rounded-2xl shadow-xl shadow-primary/30 flex flex-col items-center border-4 border-surface-container-lowest">
-<span class="material-symbols-outlined text-on-primary text-3xl mb-1" data-icon="lan">lan</span>
-<span class="font-headline font-black text-on-primary tracking-tighter text-lg leading-tight" data-i18n="architecture.centralNode.title">LocalBridge</span>
-<span class="text-[9px] font-label text-on-primary/70 font-bold uppercase tracking-widest" data-i18n="architecture.centralNode.description">Core Router</span>
-</div>
-</div>
-<!-- Bottom Nodes -->
-<div class="grid grid-cols-4 gap-8 max-w-6xl mx-auto relative z-10">
-<!-- Other Extension (Left) -->
-<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-xl" data-icon="extension">extension</span>
-</div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
-</div>
-<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.otherExtension.title">Other Extension</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.otherExtension.description">Third-party browser extensions can join the protocol.</p>
-</div>
+            <!-- Bottom Right Node (Web) -->
+            <div
+              class="absolute bottom-[10%] right-[15%] w-16 h-16 rounded-full bg-primary-container flex items-center justify-center shadow-lg shadow-primary/20 z-10">
+              <span class="material-symbols-outlined text-on-primary-container text-3xl"
+                data-icon="public">public</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Interactive Architecture -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto px-8 relative">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl md:text-5xl font-black font-headline text-on-surface mb-4" data-i18n="architecture.title">
+            Core Architecture</h2>
+          <p class="text-on-surface-variant font-body mb-6" data-i18n="architecture.subtitle">Real-time instruction
+            routing via the LocalBridge mesh.</p>
+          <!-- Legend Position - Centered below title -->
+          <div class="flex items-center justify-center space-x-8">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></span>
+              <span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant"
+                data-i18n="architecture.legend.instructions">REST API (Instructions)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-inverse-primary"></span>
+              <span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant"
+                data-i18n="architecture.legend.response">WebSocket (Response)</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm border border-outline-variant/10">
+          <!-- SVG Connection Lines & Flow Animation -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 100 100">
+            <!-- Vertical lines from top nodes to center -->
+            <line x1="16.67" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor"
+              stroke-width="0.3" />
+            <line x1="50" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor"
+              stroke-width="0.3" />
+            <line x1="83.33" y1="15" x2="50" y2="45" class="text-outline-variant/20" stroke="currentColor"
+              stroke-width="0.3" />
+            <!-- Vertical lines from center to bottom nodes -->
+            <line x1="50" y1="55" x2="33.33" y2="80" class="text-outline-variant/20" stroke="currentColor"
+              stroke-width="0.3" />
+            <line x1="50" y1="55" x2="66.67" y2="80" class="text-outline-variant/20" stroke="currentColor"
+              stroke-width="0.3" />
+            <!-- Animated dots (Instructions - Amber, moving down) -->
+            <circle fill="#feb700" r="1.2">
+              <animateMotion dur="5s" repeatCount="indefinite" path="M16.67 15 L50 45 L33.33 80" />
+            </circle>
+            <circle fill="#feb700" r="1.2">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="1.5s" path="M50 15 L50 45 L66.67 80" />
+            </circle>
+            <!-- Animated dots (Response - Cyan, moving up) -->
+            <circle fill="#00d9ff" r="1.2">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="0.5s" path="M66.67 80 L50 55 L83.33 15" />
+            </circle>
+            <circle fill="#00d9ff" r="1.2">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="1s" path="M33.33 80 L50 55 L16.67 15" />
+            </circle>
+          </svg>
+          <!-- Top Nodes -->
+          <div class="grid grid-cols-3 gap-8 mb-16 relative z-10">
+            <div
+              class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
+              <div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-tertiary text-xl" data-icon="smart_toy">smart_toy</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.aiAgent.title">AI Agent
+                </h4>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold"
+                  data-i18n="architecture.topNodes.aiAgent.description">Autonomous Logic</p>
+              </div>
+            </div>
+            <div
+              class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
+              <div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-tertiary text-xl" data-icon="code">code</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.ideSdk.title">IDE/SDK</h4>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold"
+                  data-i18n="architecture.topNodes.ideSdk.description">Manual Injection</p>
+              </div>
+            </div>
+            <div
+              class="p-5 bg-surface rounded-xl flex items-center space-x-4 border border-outline-variant/10 shadow-sm">
+              <div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-tertiary text-xl" data-icon="terminal">terminal</span>
+              </div>
+              <div>
+                <h4 class="font-headline font-bold text-sm" data-i18n="architecture.topNodes.shellScripts.title">Shell
+                  Scripts</h4>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold"
+                  data-i18n="architecture.topNodes.shellScripts.description">CLI Orchestration</p>
+              </div>
+            </div>
+          </div>
+          <!-- Central Node -->
+          <div class="flex justify-center mb-16 relative z-10">
+            <div
+              class="bg-primary px-8 py-5 rounded-2xl shadow-xl shadow-primary/30 flex flex-col items-center border-4 border-surface-container-lowest">
+              <span class="material-symbols-outlined text-on-primary text-3xl mb-1" data-icon="lan">lan</span>
+              <span class="font-headline font-black text-on-primary tracking-tighter text-lg leading-tight"
+                data-i18n="architecture.centralNode.title">LocalBridge</span>
+              <span class="text-[9px] font-label text-on-primary/70 font-bold uppercase tracking-widest"
+                data-i18n="architecture.centralNode.description">Core Router</span>
+            </div>
+          </div>
+          <!-- Bottom Nodes -->
+          <div class="grid grid-cols-4 gap-8 max-w-6xl mx-auto relative z-10">
+            <!-- Other Extension (Left) -->
+            <div
+              class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-xl" data-icon="extension">extension</span>
+                </div>
+                <span
+                  class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full"
+                  data-i18n="architecture.websocket">WEBSOCKET</span>
+              </div>
+              <h3 class="text-lg font-headline font-bold mb-1"
+                data-i18n="architecture.bottomNodes.otherExtension.title">Other Extension</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed"
+                data-i18n="architecture.bottomNodes.otherExtension.description">Third-party browser extensions can join
+                the protocol.</p>
+            </div>
 
-<!-- aiClaw -->
-<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="ads_click">ads_click</span>
-</div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
-</div>
-<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.aiClaw.title">aiClaw</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.aiClaw.description">Browser-native automation module for DOM manipulation.</p>
-</div>
+            <!-- aiClaw -->
+            <div
+              class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+                  <span class="material-symbols-outlined text-on-primary-container text-xl"
+                    data-icon="ads_click">ads_click</span>
+                </div>
+                <span
+                  class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full"
+                  data-i18n="architecture.websocket">WEBSOCKET</span>
+              </div>
+              <h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.aiClaw.title">aiClaw
+              </h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed"
+                data-i18n="architecture.bottomNodes.aiClaw.description">Browser-native automation module for DOM
+                manipulation.</p>
+            </div>
 
-<!-- TweetClaw -->
-<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="nest_audio">nest_audio</span>
-</div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
-</div>
-<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.tweetClaw.title">TweetClaw</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.tweetClaw.description">Social graph interaction node for headless thread monitoring.</p>
-</div>
+            <!-- TweetClaw -->
+            <div
+              class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+                  <span class="material-symbols-outlined text-on-primary-container text-xl"
+                    data-icon="nest_audio">nest_audio</span>
+                </div>
+                <span
+                  class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full"
+                  data-i18n="architecture.websocket">WEBSOCKET</span>
+              </div>
+              <h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.tweetClaw.title">
+                TweetClaw</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed"
+                data-i18n="architecture.bottomNodes.tweetClaw.description">Social graph interaction node for headless
+                thread monitoring.</p>
+            </div>
 
-<!-- Other Software (Right) -->
-<div class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-xl" data-icon="apps">apps</span>
-</div>
-<span class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full" data-i18n="architecture.websocket">WEBSOCKET</span>
-</div>
-<h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.otherSoftware.title">Other Software</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed" data-i18n="architecture.bottomNodes.otherSoftware.description">Any application can implement the AIHub protocol.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Infrastructure Nodes Grid -->
-<section class="py-24 px-8">
-<div class="max-w-screen-2xl mx-auto">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-<div>
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="products.sectionLabel">System Monitoring</span>
-<h2 class="text-4xl font-black font-headline mt-2" data-i18n="products.sectionTitle">Active Infrastructure</h2>
-</div>
-<div class="flex space-x-2">
-<div class="flex items-center space-x-2 bg-surface-container-high px-4 py-2 rounded-full">
-<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-<span class="text-xs font-headline font-bold" data-i18n="products.statusBadge">ALL SYSTEMS NOMINAL</span>
-</div>
-</div>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<!-- LocalBridge Card -->
-<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
-<div>
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.localbridge.status">macOS Available</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.localbridge.title">LocalBridge</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.localbridge.description">The central hub that runs locally on your machine. Accepts WebSocket connections from browser extensions and exposes everything as a clean REST API for AI agents.</p>
-</div>
-<div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span data-i18n="products.localbridge.action">Manage Node</span>
-<span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
-</div>
-</div>
-<!-- TweetClaw Card -->
-<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
-<div>
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
-<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.tweetclaw.status">Developer Version</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.tweetclaw.title">TweetClaw</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.tweetclaw.description">Chrome extension that binds your X/Twitter session to AI agents. Intercepts structured API responses and forwards them via WebSocket — no scraping, near-zero token overhead.</p>
-</div>
-<div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span data-i18n="products.tweetclaw.action">Provision Hub</span>
-<span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
-</div>
-</div>
-<!-- AIClaw Card -->
-<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
-<div>
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-secondary" data-icon="fingerprint">fingerprint</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="products.aiclaw.status">Developer Version</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.aiclaw.title">AIClaw</h3>
-<p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.aiclaw.description">Connects browser-based AI platforms (ChatGPT, Claude, Gemini) to your local agent workflow. Reduces token consumption overhead on web AI interfaces.</p>
-</div>
-<div class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
-<span data-i18n="products.aiclaw.action">Secure Instance</span>
-<span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Code Section -->
-<section class="py-24 bg-surface-container-highest/30">
-<div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-5 gap-20 items-center">
-<div class="lg:col-span-2 space-y-6">
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="code.sectionLabel">Developer SDK</span>
-<h2 class="text-5xl font-black font-headline text-on-surface" data-i18n="code.sectionTitle">ClawBot Deep Integration</h2>
-<p class="text-lg text-on-surface-variant leading-relaxed" data-i18n="code.description">
-                    Integrating AIHub nodes is as simple as five lines of Python. No complex auth handshakes, just pure lucid instruction flow.
-                </p>
-<ul class="space-y-4">
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="font-body font-medium" data-i18n="code.features.autoDiscovery">Auto-discovery of local bridge nodes</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<span class="font-body font-medium" data-i18n="code.features.asyncWebSocket">Asynchronous WebSocket event handling</span>
-</li>
-</ul>
-</div>
-<div class="lg:col-span-3">
-<div class="bg-slate-900 rounded-xl overflow-hidden shadow-2xl relative">
-<div class="flex items-center justify-between px-6 py-4 bg-slate-800/50">
-<div class="flex space-x-2">
-<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-<div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
-<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-</div>
-<div class="flex items-center space-x-4">
-<span class="text-slate-400 text-xs font-label" data-i18n="code.codeFile">openclaw.py</span>
-<a href="https://github.com/aiwithblockchain/aihub/blob/main/localBridge/clawBotCli/openclaw.py" target="_blank" rel="noopener" class="flex items-center text-slate-300 hover:text-white transition-colors">
-<span class="material-symbols-outlined text-sm mr-1" data-icon="code">code</span>
-<span class="text-[10px] font-bold uppercase tracking-widest">GitHub</span>
-</a>
-</div>
-</div>
-<pre class="p-6 text-xs md:text-sm leading-relaxed overflow-x-auto no-scrollbar"><span class="text-slate-400" data-i18n="code.comments.step1"># Step 1: ClawBot commands TweetClaw to read tweet</span>
+            <!-- Other Software (Right) -->
+            <div
+              class="group p-6 bg-surface rounded-2xl border border-transparent hover:border-primary-container transition-all shadow-sm">
+              <div class="flex justify-between items-start mb-4">
+                <div class="w-10 h-10 bg-primary-container/30 rounded-lg flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-xl" data-icon="apps">apps</span>
+                </div>
+                <span
+                  class="bg-primary-container/10 text-primary font-label text-[9px] font-black px-2 py-1 rounded-full"
+                  data-i18n="architecture.websocket">WEBSOCKET</span>
+              </div>
+              <h3 class="text-lg font-headline font-bold mb-1" data-i18n="architecture.bottomNodes.otherSoftware.title">
+                Other Software</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed"
+                data-i18n="architecture.bottomNodes.otherSoftware.description">Any application can implement the AIHub
+                protocol.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Infrastructure Nodes Grid -->
+    <section class="py-24 px-8">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <span class="font-label text-xs font-bold uppercase tracking-widest text-primary"
+              data-i18n="products.sectionLabel">System Monitoring</span>
+            <h2 class="text-4xl font-black font-headline mt-2" data-i18n="products.sectionTitle">Active Infrastructure
+            </h2>
+          </div>
+          <div class="flex space-x-2">
+            <div class="flex items-center space-x-2 bg-surface-container-high px-4 py-2 rounded-full">
+              <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span class="text-xs font-headline font-bold" data-i18n="products.statusBadge">ALL SYSTEMS NOMINAL</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- LocalBridge Card -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
+                <span
+                  class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase"
+                  data-i18n="products.localbridge.status">macOS Available</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.localbridge.title">LocalBridge</h3>
+              <p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.localbridge.description">The
+                central hub that runs locally on your machine. Accepts WebSocket connections from browser extensions and
+                exposes everything as a clean REST API for AI agents.</p>
+            </div>
+            <div
+              class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
+              <span data-i18n="products.localbridge.action">Manage Node</span>
+              <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
+            </div>
+          </div>
+          <!-- TweetClaw Card -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
+                <span
+                  class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase"
+                  data-i18n="products.tweetclaw.status">Developer Version</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.tweetclaw.title">TweetClaw</h3>
+              <p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.tweetclaw.description">
+                Chrome extension that binds your X/Twitter session to AI agents. Intercepts structured API responses and
+                forwards them via WebSocket — no scraping, near-zero token overhead.</p>
+            </div>
+            <div
+              class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
+              <span data-i18n="products.tweetclaw.action">Provision Hub</span>
+              <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
+            </div>
+          </div>
+          <!-- AIClaw Card -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between group hover:translate-y-[-4px] transition-transform">
+            <div>
+              <div class="flex justify-between items-start mb-6">
+                <span class="material-symbols-outlined text-4xl text-secondary"
+                  data-icon="fingerprint">fingerprint</span>
+                <span
+                  class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase"
+                  data-i18n="products.aiclaw.status">Developer Version</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="products.aiclaw.title">AIClaw</h3>
+              <p class="text-on-surface-variant text-sm font-body mb-8" data-i18n="products.aiclaw.description">Connects
+                browser-based AI platforms (ChatGPT, Claude, Gemini) to your local agent workflow. Reduces token
+                consumption overhead on web AI interfaces.</p>
+            </div>
+            <div
+              class="flex items-center text-primary font-headline font-bold cursor-pointer group-hover:gap-2 transition-all">
+              <span data-i18n="products.aiclaw.action">Secure Instance</span>
+              <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Code Section -->
+    <section class="py-24 bg-surface-container-highest/30">
+      <div class="max-w-screen-2xl mx-auto px-8 grid lg:grid-cols-5 gap-20 items-center">
+        <div class="lg:col-span-2 space-y-6">
+          <span class="font-label text-xs font-bold uppercase tracking-widest text-primary"
+            data-i18n="code.sectionLabel">Developer SDK</span>
+          <h2 class="text-5xl font-black font-headline text-on-surface" data-i18n="code.sectionTitle">ClawBot Deep
+            Integration</h2>
+          <p class="text-lg text-on-surface-variant leading-relaxed" data-i18n="code.description">
+            Integrating AIHub nodes is as simple as five lines of Python. No complex auth handshakes, just pure lucid
+            instruction flow.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start space-x-3">
+              <span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-body font-medium" data-i18n="code.features.autoDiscovery">Auto-discovery of local bridge
+                nodes</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-body font-medium" data-i18n="code.features.asyncWebSocket">Asynchronous WebSocket event
+                handling</span>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="bg-slate-900 rounded-xl overflow-hidden shadow-2xl relative">
+            <div class="flex items-center justify-between px-6 py-4 bg-slate-800/50">
+              <div class="flex space-x-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <span class="text-slate-400 text-xs font-label" data-i18n="code.codeFile">openclaw.py</span>
+                <a href="https://github.com/aiwithblockchain/aihub/blob/main/localBridge/clawBotCli/openclaw.py"
+                  target="_blank" rel="noopener"
+                  class="flex items-center text-slate-300 hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-sm mr-1" data-icon="code">code</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest">GitHub</span>
+                </a>
+              </div>
+            </div>
+            <pre
+              class="p-6 text-xs md:text-sm leading-relaxed overflow-x-auto no-scrollbar"><span class="text-slate-400" data-i18n="code.comments.step1"># Step 1: ClawBot commands TweetClaw to read tweet</span>
 <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"read_tweet"</span>})
 <span class="text-slate-200">tweet_content</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"tweetclaw"</span>)
 
@@ -484,262 +638,362 @@ our website: https://aiwithblockchain.github.io/
 <span class="text-slate-400" data-i18n="code.comments.step3"># Step 3: Get AI response and command TweetClaw to post</span>
 <span class="text-slate-200">ai_response</span> = <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">receive_from</span>(<span class="text-emerald-400">"aiclaw"</span>)
 <span class="text-pink-400">await</span> <span class="text-slate-200">bridge</span>.<span class="text-blue-400">send_to</span>(<span class="text-emerald-400">"tweetclaw"</span>, {<span class="text-emerald-400">"action"</span>: <span class="text-emerald-400">"post"</span>, <span class="text-emerald-400">"content"</span>: <span class="text-slate-200">ai_response</span>})</pre>
-</div>
-</div>
-</div>
+          </div>
+        </div>
+      </div>
 
-<!-- Video Demo Section -->
-<div class="max-w-screen-2xl mx-auto px-8 mt-20">
-<div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-sm">
-<div class="flex items-center justify-between mb-8">
-<div>
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block" data-i18n="video.sectionLabel">Live Demo</span>
-<h3 class="text-3xl font-black font-headline text-on-surface" data-i18n="video.sectionTitle">Watch It In Action</h3>
-<p class="text-on-surface-variant mt-2" data-i18n="video.description">See how Python scripts connect ChatGPT and Twitter using AIClaw, TweetClaw, and LocalBridge.</p>
-</div>
-<a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="hidden md:flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
-<span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
-<span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
-</a>
-</div>
-<div class="relative w-full" style="padding-bottom: 56.25%;">
-<iframe class="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg" src="https://www.youtube.com/embed/Z_7GYFY17hY" title="AIHub Integration Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-<a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener" class="md:hidden flex items-center justify-center text-primary font-headline font-bold hover:text-primary-dim transition-colors mt-6">
-<span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
-<span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Start Engineering (3-Step Guide) -->
-<section id="downloads" class="py-32 px-8 bg-surface-container-low">
-<div class="max-w-screen-2xl mx-auto">
-<div class="text-center mb-16">
-<span class="font-label text-xs font-bold uppercase tracking-widest text-primary" data-i18n="downloads.sectionLabel">Get Started</span>
-<h2 class="text-5xl font-black font-headline text-on-surface mb-6 mt-2" data-i18n="downloads.sectionTitle">Downloads</h2>
-<p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="downloads.sectionDescription">Install LocalBridge and browser extensions to start building with AIHub.</p>
-</div>
+      <!-- Video Demo Section -->
+      <div class="max-w-screen-2xl mx-auto px-8 mt-20">
+        <div class="bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-sm">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <span class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2 block"
+                data-i18n="video.sectionLabel">Live Demo</span>
+              <h3 class="text-3xl font-black font-headline text-on-surface" data-i18n="video.sectionTitle">Watch It In
+                Action</h3>
+              <p class="text-on-surface-variant mt-2" data-i18n="video.description">See how Python scripts connect
+                ChatGPT and Twitter using AIClaw, TweetClaw, and LocalBridge.</p>
+            </div>
+            <a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener"
+              class="hidden md:flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
+              <span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
+              <span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
+            </a>
+          </div>
+          <div class="relative w-full" style="padding-bottom: 56.25%;">
+            <iframe class="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/Z_7GYFY17hY" title="AIHub Integration Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <a href="https://youtu.be/Z_7GYFY17hY" target="_blank" rel="noopener"
+            class="md:hidden flex items-center justify-center text-primary font-headline font-bold hover:text-primary-dim transition-colors mt-6">
+            <span class="material-symbols-outlined mr-2" data-icon="open_in_new">open_in_new</span>
+            <span data-i18n="video.watchOnYouTube">Watch on YouTube</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Start Engineering (3-Step Guide) -->
+    <section id="downloads" class="py-32 px-8 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="text-center mb-16">
+          <span class="font-label text-xs font-bold uppercase tracking-widest text-primary"
+            data-i18n="downloads.sectionLabel">Get Started</span>
+          <h2 class="text-5xl font-black font-headline text-on-surface mb-6 mt-2" data-i18n="downloads.sectionTitle">
+            Downloads</h2>
+          <p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="downloads.sectionDescription">Install
+            LocalBridge and browser extensions to start building with AIHub.</p>
+        </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-<!-- LocalBridge for Mac -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
-<span class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.localbridge.platform">macOS</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.localbridge.title">LocalBridge</h3>
-<p class="text-sm text-on-surface-variant mb-6" data-i18n="downloads.localbridge.description">macOS 12+ · Apple Silicon & Intel</p>
-<a href="assets/OpeHub.dmg" download class="block mb-3">
-<button class="w-full px-6 py-3 bg-primary text-on-primary rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center">
-<span class="material-symbols-outlined mr-2" data-icon="download">download</span>
-<span data-i18n="downloads.localbridge.downloadBtn">Download .dmg</span>
-</button>
-</a>
-<!-- Mac App Store Button -->
-<a href="https://apps.apple.com/app/openhub/id6761117317" target="_blank" rel="noopener" class="block">
-<button class="w-full px-6 py-3 bg-[#1c1c1e] hover:bg-[#3a3a3c] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-black/20 transition-all flex items-center justify-center gap-2">
-<svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.37 2.78M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-<span data-i18n="downloads.localbridge.appStoreBtn">Mac App Store</span>
-</button>
-</a>
-</div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <!-- LocalBridge for Mac -->
+          <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-4xl text-primary" data-icon="router">router</span>
+              <span
+                class="px-3 py-1 bg-primary-container/20 text-on-primary-container text-[10px] font-black rounded-full font-label uppercase"
+                data-i18n="downloads.localbridge.platform">macOS</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.localbridge.title">LocalBridge</h3>
+            <p class="text-sm text-on-surface-variant mb-6" data-i18n="downloads.localbridge.description">macOS 12+ ·
+              Apple Silicon & Intel</p>
+            <a href="assets/OpenHub.dmg" download class="block mb-3">
+              <button
+                class="w-full px-6 py-3 bg-primary text-on-primary rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined mr-2" data-icon="download">download</span>
+                <span data-i18n="downloads.localbridge.downloadBtn">Download .dmg</span>
+              </button>
+            </a>
+            <!-- Mac App Store Button -->
+            <a href="https://apps.apple.com/app/openhub/id6761117317" target="_blank" rel="noopener" class="block">
+              <button
+                class="w-full px-6 py-3 bg-[#1c1c1e] hover:bg-[#3a3a3c] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-black/20 transition-all flex items-center justify-center gap-2">
+                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.37 2.78M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                <span data-i18n="downloads.localbridge.appStoreBtn">Mac App Store</span>
+              </button>
+            </a>
+          </div>
 
-<!-- TweetClaw Developer -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
-<span class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.tweetclaw.platform">Chrome</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.tweetclaw.title">TweetClaw</h3>
-<p class="text-sm text-on-surface-variant mb-4" data-i18n="downloads.tweetclaw.description">Developer Version · Chrome Extension</p>
-<!-- Chrome Web Store Button -->
-<a href="https://chromewebstore.google.com/detail/tweetclaw/nolgcgfoebklpejfgebinnakamjamkna" target="_blank" rel="noopener" class="block mb-3">
-<button class="w-full px-6 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
-<svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.2"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="white"/><path d="M8.27 6A9.96 9.96 0 0 1 12 5c2.21 0 4.25.71 5.9 1.9L12 7H8.27z" fill="#EA4335"/><path d="M5 12c0-1.48.4-2.86 1.09-4.05L9.5 14H5.1A10 10 0 0 1 5 12z" fill="#FBBC05"/><path d="M12 19a7 7 0 0 1-6.27-3.88L9.5 14l1.18 2.04A4 4 0 0 0 16 12h5.93A10 10 0 0 1 12 19z" fill="#34A853"/><path d="M16 12a4 4 0 0 0-4-4h7.9A10 10 0 0 1 22 12h-6z" fill="#4285F4"/></svg>
-<span data-i18n="downloads.tweetclaw.webStoreBtn">Chrome Web Store</span>
-</button>
-</a>
-<!-- Developer Version Button -->
-<a href="assets/tweetClaw.zip" download>
-<button class="w-full px-6 py-3 bg-tertiary/10 text-tertiary border border-tertiary/30 rounded-xl font-headline font-bold hover:bg-tertiary hover:text-on-tertiary hover:shadow-lg hover:shadow-tertiary/20 transition-all flex items-center justify-center">
-<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="download">download</span>
-<span data-i18n="downloads.tweetclaw.downloadBtn">Developer .zip</span>
-</button>
-</a>
-<div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
-<strong class="text-on-surface" data-i18n="downloads.tweetclaw.installationTitle">Installation:</strong><br/>
-<span data-i18n="downloads.tweetclaw.installStep1">1. Open chrome://extensions/</span><br/>
-<span data-i18n="downloads.tweetclaw.installStep2">2. Enable "Developer mode"</span><br/>
-<span data-i18n="downloads.tweetclaw.installStep3">3. Extract the zip file</span><br/>
-<span data-i18n="downloads.tweetclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
-</div>
-</div>
+          <!-- TweetClaw Developer -->
+          <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-4xl text-tertiary" data-icon="campaign">campaign</span>
+              <span
+                class="px-3 py-1 bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-black rounded-full font-label uppercase"
+                data-i18n="downloads.tweetclaw.platform">Chrome</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.tweetclaw.title">TweetClaw</h3>
+            <p class="text-sm text-on-surface-variant mb-4" data-i18n="downloads.tweetclaw.description">Developer
+              Version · Chrome Extension</p>
+            <!-- Chrome Web Store Button -->
+            <a href="https://chromewebstore.google.com/detail/tweetclaw/nolgcgfoebklpejfgebinnakamjamkna"
+              target="_blank" rel="noopener" class="block mb-3">
+              <button
+                class="w-full px-6 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
+                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.2" />
+                  <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="white" />
+                  <path d="M8.27 6A9.96 9.96 0 0 1 12 5c2.21 0 4.25.71 5.9 1.9L12 7H8.27z" fill="#EA4335" />
+                  <path d="M5 12c0-1.48.4-2.86 1.09-4.05L9.5 14H5.1A10 10 0 0 1 5 12z" fill="#FBBC05" />
+                  <path d="M12 19a7 7 0 0 1-6.27-3.88L9.5 14l1.18 2.04A4 4 0 0 0 16 12h5.93A10 10 0 0 1 12 19z"
+                    fill="#34A853" />
+                  <path d="M16 12a4 4 0 0 0-4-4h7.9A10 10 0 0 1 22 12h-6z" fill="#4285F4" />
+                </svg>
+                <span data-i18n="downloads.tweetclaw.webStoreBtn">Chrome Web Store</span>
+              </button>
+            </a>
+            <!-- Developer Version Button -->
+            <a href="assets/tweetClaw.zip" download>
+              <button
+                class="w-full px-6 py-3 bg-tertiary/10 text-tertiary border border-tertiary/30 rounded-xl font-headline font-bold hover:bg-tertiary hover:text-on-tertiary hover:shadow-lg hover:shadow-tertiary/20 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined mr-2 text-[18px]" data-icon="download">download</span>
+                <span data-i18n="downloads.tweetclaw.downloadBtn">Developer .zip</span>
+              </button>
+            </a>
+            <div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
+              <strong class="text-on-surface"
+                data-i18n="downloads.tweetclaw.installationTitle">Installation:</strong><br />
+              <span data-i18n="downloads.tweetclaw.installStep1">1. Open chrome://extensions/</span><br />
+              <span data-i18n="downloads.tweetclaw.installStep2">2. Enable "Developer mode"</span><br />
+              <span data-i18n="downloads.tweetclaw.installStep3">3. Extract the zip file</span><br />
+              <span data-i18n="downloads.tweetclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
+            </div>
+          </div>
 
-<!-- AIClaw Developer -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl text-secondary" data-icon="fingerprint">fingerprint</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase" data-i18n="downloads.aiclaw.platform">Chrome</span>
-</div>
-<h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.aiclaw.title">AIClaw</h3>
-<p class="text-sm text-on-surface-variant mb-4" data-i18n="downloads.aiclaw.description">Developer Version · Chrome Extension</p>
-<!-- Chrome Web Store Button -->
-<a href="https://chromewebstore.google.com/detail/aiclaw/dekodhhdejpemilagaeceappgfphnfpk" target="_blank" rel="noopener" class="block mb-3">
-<button class="w-full px-6 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
-<svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.2"/><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="white"/><path d="M8.27 6A9.96 9.96 0 0 1 12 5c2.21 0 4.25.71 5.9 1.9L12 7H8.27z" fill="#EA4335"/><path d="M5 12c0-1.48.4-2.86 1.09-4.05L9.5 14H5.1A10 10 0 0 1 5 12z" fill="#FBBC05"/><path d="M12 19a7 7 0 0 1-6.27-3.88L9.5 14l1.18 2.04A4 4 0 0 0 16 12h5.93A10 10 0 0 1 12 19z" fill="#34A853"/><path d="M16 12a4 4 0 0 0-4-4h7.9A10 10 0 0 1 22 12h-6z" fill="#4285F4"/></svg>
-<span data-i18n="downloads.aiclaw.webStoreBtn">Chrome Web Store</span>
-</button>
-</a>
-<!-- Developer Version Button -->
-<a href="assets/aiClaw.zip" download>
-<button class="w-full px-6 py-3 bg-secondary/10 text-secondary border border-secondary/30 rounded-xl font-headline font-bold hover:bg-secondary hover:text-on-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all flex items-center justify-center">
-<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="download">download</span>
-<span data-i18n="downloads.aiclaw.downloadBtn">Developer .zip</span>
-</button>
-</a>
-<div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
-<strong class="text-on-surface" data-i18n="downloads.aiclaw.installationTitle">Installation:</strong><br/>
-<span data-i18n="downloads.aiclaw.installStep1">1. Open chrome://extensions/</span><br/>
-<span data-i18n="downloads.aiclaw.installStep2">2. Enable "Developer mode"</span><br/>
-<span data-i18n="downloads.aiclaw.installStep3">3. Extract the zip file</span><br/>
-<span data-i18n="downloads.aiclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
-</div>
-</div>
-</div>
+          <!-- AIClaw Developer -->
+          <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-4xl text-secondary" data-icon="fingerprint">fingerprint</span>
+              <span
+                class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-[10px] font-black rounded-full font-label uppercase"
+                data-i18n="downloads.aiclaw.platform">Chrome</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-2" data-i18n="downloads.aiclaw.title">AIClaw</h3>
+            <p class="text-sm text-on-surface-variant mb-4" data-i18n="downloads.aiclaw.description">Developer Version ·
+              Chrome Extension</p>
+            <!-- Chrome Web Store Button -->
+            <a href="https://chromewebstore.google.com/detail/aiclaw/dekodhhdejpemilagaeceappgfphnfpk" target="_blank"
+              rel="noopener" class="block mb-3">
+              <button
+                class="w-full px-6 py-3 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-xl font-headline font-bold hover:shadow-lg hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
+                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.2" />
+                  <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="white" />
+                  <path d="M8.27 6A9.96 9.96 0 0 1 12 5c2.21 0 4.25.71 5.9 1.9L12 7H8.27z" fill="#EA4335" />
+                  <path d="M5 12c0-1.48.4-2.86 1.09-4.05L9.5 14H5.1A10 10 0 0 1 5 12z" fill="#FBBC05" />
+                  <path d="M12 19a7 7 0 0 1-6.27-3.88L9.5 14l1.18 2.04A4 4 0 0 0 16 12h5.93A10 10 0 0 1 12 19z"
+                    fill="#34A853" />
+                  <path d="M16 12a4 4 0 0 0-4-4h7.9A10 10 0 0 1 22 12h-6z" fill="#4285F4" />
+                </svg>
+                <span data-i18n="downloads.aiclaw.webStoreBtn">Chrome Web Store</span>
+              </button>
+            </a>
+            <!-- Developer Version Button -->
+            <a href="assets/aiClaw.zip" download>
+              <button
+                class="w-full px-6 py-3 bg-secondary/10 text-secondary border border-secondary/30 rounded-xl font-headline font-bold hover:bg-secondary hover:text-on-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined mr-2 text-[18px]" data-icon="download">download</span>
+                <span data-i18n="downloads.aiclaw.downloadBtn">Developer .zip</span>
+              </button>
+            </a>
+            <div class="mt-4 p-4 bg-surface-container rounded-lg text-xs text-on-surface-variant leading-relaxed">
+              <strong class="text-on-surface"
+                data-i18n="downloads.aiclaw.installationTitle">Installation:</strong><br />
+              <span data-i18n="downloads.aiclaw.installStep1">1. Open chrome://extensions/</span><br />
+              <span data-i18n="downloads.aiclaw.installStep2">2. Enable "Developer mode"</span><br />
+              <span data-i18n="downloads.aiclaw.installStep3">3. Extract the zip file</span><br />
+              <span data-i18n="downloads.aiclaw.installStep4">4. Click "Load unpacked" and select the folder</span>
+            </div>
+          </div>
+        </div>
 
-<div class="text-center">
-<a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener" class="inline-flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
-<span class="material-symbols-outlined mr-2" data-icon="code">code</span>
-<span data-i18n="downloads.viewSourceCode">View Source Code on GitHub</span>
-<span class="material-symbols-outlined ml-2" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-</section>
+        <div class="text-center">
+          <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener"
+            class="inline-flex items-center text-primary font-headline font-bold hover:text-primary-dim transition-colors">
+            <span class="material-symbols-outlined mr-2" data-icon="code">code</span>
+            <span data-i18n="downloads.viewSourceCode">View Source Code on GitHub</span>
+            <span class="material-symbols-outlined ml-2" data-icon="arrow_forward">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-<!-- Start Engineering (3-Step Guide) -->
-<section id="integration" class="py-32 px-8">
-<div class="max-w-screen-2xl mx-auto">
-<div class="text-center mb-24">
-<h2 class="text-5xl font-black font-headline text-on-surface mb-6" data-i18n="integration.sectionTitle">Start Engineering</h2>
-<p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="integration.sectionDescription">Go from zero to a distributed autonomous mesh in under three minutes.</p>
-</div>
-<div class="grid md:grid-cols-3 gap-12 mb-24">
-<div class="relative group">
-<div class="mb-8 w-20 h-20 bg-primary-container rounded-2xl flex items-center justify-center shadow-xl shadow-primary/10 group-hover:rotate-6 transition-transform">
-<span class="material-symbols-outlined text-on-primary-container text-4xl" data-icon="download">download</span>
-</div>
-<div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-primary/60 select-none">1</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step1.title">Download LocalBridge</h3>
-<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step1.description">Download LocalBridge for macOS. Windows and Linux versions coming soon.</p>
-</div>
-<div class="relative group">
-<div class="mb-8 w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center shadow-xl shadow-secondary/10 group-hover:rotate-6 transition-transform">
-<span class="material-symbols-outlined text-on-secondary-container text-4xl" data-icon="power">power</span>
-</div>
-<div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-secondary/60 select-none">2</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step2.title">Install Extensions</h3>
-<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step2.description">Install TweetClaw or AIClaw browser extensions. Developer versions available now, Chrome Web Store coming soon.</p>
-</div>
-<div class="relative group">
-<div class="mb-8 w-20 h-20 bg-tertiary-container rounded-2xl flex items-center justify-center shadow-xl shadow-tertiary/10 group-hover:rotate-6 transition-transform">
-<span class="material-symbols-outlined text-on-tertiary-container text-4xl" data-icon="rocket_launch">rocket_launch</span>
-</div>
-<div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-tertiary-fixed/35 select-none">3</div>
-<h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step3.title">Connect & Run</h3>
-<p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step3.description">Launch LocalBridge and your extensions will auto-connect. Start sending structured commands to your AI agents.</p>
-</div>
-</div>
-<!-- Updated Call to Action Bar -->
-<div class="bg-primary p-2 rounded-[2rem]">
-<div class="bg-on-primary-container/20 rounded-[1.8rem] px-8 py-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8">
-<div>
-<h2 class="text-3xl font-black font-headline text-white mb-2" data-i18n="integration.cta.title">Ready to build with AIHub?</h2>
-<p class="text-on-primary/70" data-i18n="integration.cta.description">Open source infrastructure for AI agents. MIT License.</p>
-</div>
-<div class="flex gap-4">
-<a href="#downloads">
-<button class="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-headline font-bold text-lg hover:scale-105 transition-transform" data-i18n="integration.cta.downloadBtn">Download Now</button>
-</a>
-<a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
-<button class="px-8 py-4 border-2 border-primary-container text-primary-container rounded-xl font-headline font-bold text-lg hover:bg-primary-container/10 transition-colors flex items-center">
-<span class="material-symbols-outlined mr-2" data-icon="code">code</span>
-<span data-i18n="integration.cta.githubBtn">View on GitHub</span>
-</button>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full py-16 px-8 mt-auto bg-slate-50 border-t border-slate-200">
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 max-w-screen-2xl mx-auto">
-<div class="col-span-2">
-<div class="text-xl font-bold text-slate-900 mb-6">AIHub</div>
-<p class="text-slate-500 text-sm max-w-xs leading-relaxed mb-8" data-i18n="footer.description">Open protocol infrastructure that bridges AI agents with the real web through structured data APIs.</p>
-<p class="text-slate-400 text-xs font-label uppercase tracking-widest" data-i18n="footer.copyright">© 2025 AIHub. MIT License.</p>
-</div>
-<div>
-<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.product.title">Product</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#architecture" data-i18n="footer.product.architecture">Architecture</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#products" data-i18n="footer.product.products">Products</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#downloads" data-i18n="footer.product.downloads">Downloads</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="#integration" data-i18n="footer.product.integration">Integration</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.resources.title">Resources</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener" data-i18n="footer.resources.github">GitHub</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/releases" target="_blank" rel="noopener" data-i18n="footer.resources.releases">Releases</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="https://github.com/aiwithblockchain/aihub/issues" target="_blank" rel="noopener" data-i18n="footer.resources.issues">Issues</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.legal.title">Legal</h4>
-<ul class="space-y-4">
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="privacy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
-<li><a class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1" href="Copyright.html" data-i18n="footer.legal.copyright">Copyright</a></li>
-</ul>
-</div>
-<div class="flex flex-col items-end justify-end space-y-4">
-<div class="flex space-x-4">
-<span class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
-<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
-</span>
-<span class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
-<span class="material-symbols-outlined text-lg" data-icon="lan">lan</span>
-</span>
-</div>
-</div>
-</div>
-</footer>
+    <!-- Start Engineering (3-Step Guide) -->
+    <section id="integration" class="py-32 px-8">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="text-center mb-24">
+          <h2 class="text-5xl font-black font-headline text-on-surface mb-6" data-i18n="integration.sectionTitle">Start
+            Engineering</h2>
+          <p class="text-xl text-on-surface-variant max-w-2xl mx-auto" data-i18n="integration.sectionDescription">Go
+            from zero to a distributed autonomous mesh in under three minutes.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12 mb-24">
+          <div class="relative group">
+            <div
+              class="mb-8 w-20 h-20 bg-primary-container rounded-2xl flex items-center justify-center shadow-xl shadow-primary/10 group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-on-primary-container text-4xl"
+                data-icon="download">download</span>
+            </div>
+            <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-primary/60 select-none">1</div>
+            <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step1.title">Download LocalBridge
+            </h3>
+            <p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step1.description">Download
+              LocalBridge for macOS. Windows and Linux versions coming soon.</p>
+          </div>
+          <div class="relative group">
+            <div
+              class="mb-8 w-20 h-20 bg-secondary-container rounded-2xl flex items-center justify-center shadow-xl shadow-secondary/10 group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-on-secondary-container text-4xl"
+                data-icon="power">power</span>
+            </div>
+            <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-secondary/60 select-none">2</div>
+            <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step2.title">Install Extensions
+            </h3>
+            <p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step2.description">Install
+              TweetClaw or AIClaw browser extensions. Developer versions available now, Chrome Web Store coming soon.
+            </p>
+          </div>
+          <div class="relative group">
+            <div
+              class="mb-8 w-20 h-20 bg-tertiary-container rounded-2xl flex items-center justify-center shadow-xl shadow-tertiary/10 group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-on-tertiary-container text-4xl"
+                data-icon="rocket_launch">rocket_launch</span>
+            </div>
+            <div class="absolute -top-4 -left-4 text-7xl font-black font-headline text-tertiary-fixed/35 select-none">3
+            </div>
+            <h3 class="text-2xl font-headline font-bold mb-4" data-i18n="integration.step3.title">Connect & Run</h3>
+            <p class="text-on-surface-variant leading-relaxed" data-i18n="integration.step3.description">Launch
+              LocalBridge and your extensions will auto-connect. Start sending structured commands to your AI agents.
+            </p>
+          </div>
+        </div>
+        <!-- Updated Call to Action Bar -->
+        <div class="bg-primary p-2 rounded-[2rem]">
+          <div
+            class="bg-on-primary-container/20 rounded-[1.8rem] px-8 py-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8">
+            <div>
+              <h2 class="text-3xl font-black font-headline text-white mb-2" data-i18n="integration.cta.title">Ready to
+                build with AIHub?</h2>
+              <p class="text-on-primary/70" data-i18n="integration.cta.description">Open source infrastructure for AI
+                agents. MIT License.</p>
+            </div>
+            <div class="flex gap-4">
+              <a href="#downloads">
+                <button
+                  class="px-8 py-4 bg-primary-container text-on-primary-container rounded-xl font-headline font-bold text-lg hover:scale-105 transition-transform"
+                  data-i18n="integration.cta.downloadBtn">Download Now</button>
+              </a>
+              <a href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener">
+                <button
+                  class="px-8 py-4 border-2 border-primary-container text-primary-container rounded-xl font-headline font-bold text-lg hover:bg-primary-container/10 transition-colors flex items-center">
+                  <span class="material-symbols-outlined mr-2" data-icon="code">code</span>
+                  <span data-i18n="integration.cta.githubBtn">View on GitHub</span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full py-16 px-8 mt-auto bg-slate-50 border-t border-slate-200">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 max-w-screen-2xl mx-auto">
+      <div class="col-span-2">
+        <div class="text-xl font-bold text-slate-900 mb-6">AIHub</div>
+        <p class="text-slate-500 text-sm max-w-xs leading-relaxed mb-8" data-i18n="footer.description">Open protocol
+          infrastructure that bridges AI agents with the real web through structured data APIs.</p>
+        <p class="text-slate-400 text-xs font-label uppercase tracking-widest" data-i18n="footer.copyright">© 2025
+          AIHub. MIT License.</p>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.product.title">Product</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="#architecture" data-i18n="footer.product.architecture">Architecture</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="#products" data-i18n="footer.product.products">Products</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="#downloads" data-i18n="footer.product.downloads">Downloads</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="#integration" data-i18n="footer.product.integration">Integration</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.resources.title">Resources</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="https://github.com/aiwithblockchain/aihub" target="_blank" rel="noopener"
+              data-i18n="footer.resources.github">GitHub</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="https://github.com/aiwithblockchain/aihub/releases" target="_blank" rel="noopener"
+              data-i18n="footer.resources.releases">Releases</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="https://github.com/aiwithblockchain/aihub/issues" target="_blank" rel="noopener"
+              data-i18n="footer.resources.issues">Issues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-slate-900 mb-6" data-i18n="footer.legal.title">Legal</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="privacy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+          <li><a
+              class="text-slate-500 hover:text-cyan-500 transition-all font-label text-sm uppercase tracking-wide block hover:translate-x-1"
+              href="Copyright.html" data-i18n="footer.legal.copyright">Copyright</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-end justify-end space-y-4">
+        <div class="flex space-x-4">
+          <span
+            class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+          </span>
+          <span
+            class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-lg" data-icon="lan">lan</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!-- i18n Scripts -->
-<script src="assets/js/i18n-core.js"></script>
-<script src="assets/js/i18n-products-code.js"></script>
-<script src="assets/js/i18n-data.js"></script>
-<script>
-  // 初始化 i18n
-  document.addEventListener('DOMContentLoaded', function() {
-    // 初始化语言并更新 DOM
-    window.i18n.updateDOM();
+  <!-- i18n Scripts -->
+  <script src="assets/js/i18n-core.js"></script>
+  <script src="assets/js/i18n-products-code.js"></script>
+  <script src="assets/js/i18n-data.js"></script>
+  <script>
+    // 初始化 i18n
+    document.addEventListener('DOMContentLoaded', function () {
+      // 初始化语言并更新 DOM
+      window.i18n.updateDOM();
 
-    // 设置 HTML lang 属性
-    document.documentElement.lang = window.i18n.getCurrentLanguage();
+      // 设置 HTML lang 属性
+      document.documentElement.lang = window.i18n.getCurrentLanguage();
 
-    // 绑定语言切换按钮
-    const langToggle = document.getElementById('lang-toggle');
-    if (langToggle) {
-      langToggle.addEventListener('click', function() {
-        window.i18n.toggleLanguage();
-      });
-    }
-  });
-</script>
+      // 绑定语言切换按钮
+      const langToggle = document.getElementById('lang-toggle');
+      if (langToggle) {
+        langToggle.addEventListener('click', function () {
+          window.i18n.toggleLanguage();
+        });
+      }
+    });
+  </script>
 
-</body></html>
+</body>
+
+</html>

@@ -19,3 +19,5 @@ bin-release/
 .DS_Store
 stitch_aihub_ai
 stitch_aihub_ai.zip
+.tweetpilot.json
+.gitignore
